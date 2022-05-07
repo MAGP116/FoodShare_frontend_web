@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   form: FormGroup;
-  constructor() {
+  constructor(private readonly authService: AuthService) {
     this.form = new FormGroup({
       email: new FormControl('', Validators.compose([
         Validators.email,
