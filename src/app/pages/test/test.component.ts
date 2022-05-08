@@ -35,7 +35,7 @@ export class TestComponent implements OnInit {
   }
 
   onGetUser(){
-    this.userService.getUser();
+    this.userService.loadUser();
   }
 
   onGetFollowers(){

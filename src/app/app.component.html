@@ -11,7 +11,7 @@
       <mat-menu #menu="matMenu" >
         <p>{{this.userService.user!.name || ''}}</p>
         <p>@{{this.userService.user!.username || ''}}</p>
-        <button mat-menu-item routerLink="/profile" routerLinkActive="active">
+        <button mat-menu-item routerLink="/profile/{{this.userService.user._id}}" routerLinkActive="active">
           <mat-icon>perm_identity</mat-icon>
           <span>Profile</span>
         </button>

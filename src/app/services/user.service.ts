@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
   private url = 'http://localhost:3000'//TODO: CHANGE TO REAL URL
   user:UserInterface|null=null;
+
   constructor(private readonly http: HttpClient) { }
   uploadProfileImage(file:File){
     let formData:FormData = new FormData();
@@ -14,10 +15,14 @@ export class UserService {
     return this.http.post(`${this.url}/user/profilePicture`, formData, {withCredentials: true,headers:{'Accept': 'application/json'}});
   }
 
-  getUser(){
+  loadUser(){
     return this.http.get<UserInterface|null>(`${this.url}/user`,{withCredentials:true}).subscribe({next:(val)=>{
       this.user = val;
     }})
+  }
+
+  getUser(id:string){
+    return this.http.get<UserInterface|null>(`${this.url}/user/id/${id}`,{withCredentials:true});
   }
 }
 
