@@ -11,7 +11,7 @@ const routes: Routes = [
     {path: "", component:LoginComponent, canActivate:[AuthGuard],},
     {path: "home", component:HomeComponent, canActivate:[AuthGuard],},
     {path: "test", component:TestComponent,canActivate:[AuthGuard],},
-    {path: "profile",component:ProfileComponent,canActivate:[AuthGuard],},
+    {path: "profile/:id",component:ProfileComponent,canActivate:[AuthGuard],},
     {path: '**', component:NotFoundComponent}
 ];
 

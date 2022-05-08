@@ -1,5 +1,23 @@
-<h1>{{userService.user!.name}}</h1>
-<h1>@{{userService.user!.username}}</h1>
-<div class="trim">
-    <img src="{{userService.user!.image}}" alt="profile image" class="avatar">
-</div>
+
+<mat-grid-list cols="6" rowHeight="6:1" *ngIf="user != null">
+    <mat-grid-tile colspan="1" rowspan="6">
+        <img src="{{user!.image}}" alt="profile image" class="avatar">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <h2>{{user!.name}}</h2>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="3">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <i>username:</i><pre> </pre><h3>@{{user!.username}}</h3>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <i>{{user!.description}}</i>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <div *ngIf="isSelf">
+            <button mat-raised-button color="warn">Edit profile</button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+  

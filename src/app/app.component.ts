@@ -19,7 +19,7 @@ export class AppComponent {
       }
     })
 
-    userService.getUser();
+    userService.loadUser();
   }
 
   logOut(){

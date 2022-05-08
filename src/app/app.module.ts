@@ -15,6 +15,7 @@ import {MatFormFieldModule, } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatMenuModule} from '@angular/material/menu';
+import {MatGridListModule} from '@angular/material/grid-list'; 
 import { LoginFormComponent } from './pages/login/login-form/login-form.component'; 
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -45,6 +46,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatCardModule,
     MatMenuModule,
     MatInputModule,
+    MatGridListModule,
     MatFormFieldModule,
     MatIconModule,
     ReactiveFormsModule
