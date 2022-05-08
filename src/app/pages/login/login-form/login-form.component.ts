@@ -24,16 +24,16 @@ export class LoginFormComponent implements OnInit {
    }
    
   onSubmit(formValue: FormGroup){
-    console.log(formValue);
+    console.log(formValue);//TODO: IMPLEMENT LOGIN WITH EMAIL
   }
 
   onLoginGoogle(){
-  window.location.href='http://localhost:3000/auth/google/login'
+  window.location.href='http://localhost:3000/auth/google/login' //TODO: CHANGE TO REAL URL
 
   }
 
   onLoginFacebook(){
-    window.location.href='http://localhost:3000/auth/facebook/login'
+    window.location.href='http://localhost:3000/auth/facebook/login' //TODO: CHANGE TO REAL URL
   }
 
   ngOnInit(): void {

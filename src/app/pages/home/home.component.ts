@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Title} from '@angular/platform-browser'
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {Title} from '@angular/platform-browser'
 export class HomeComponent implements OnInit {
 
   constructor(private readonly titleService: Title) {
-    this.titleService.setTitle('Home Component');
+    this.titleService.setTitle('Home');
   }
 
   ngOnInit(): void {
