@@ -1,0 +1,35 @@
+<h1>Update profile image</h1>
+<app-file-button [fileName]="fileName" (selected)="onFileSelect($event)"></app-file-button>
+
+<button mat-raised-button *ngIf="file !== null" (click)="onSubmitFile()" color="warn">
+    <span>Submit</span>
+</button>
+
+<h1>Get user data</h1>
+<button mat-raised-button color="warn" (click)="onGetUser()">Reload user</button>
+<br>
+<div *ngIf="this.userService.user !== null">
+    <div *ngFor="let item of this.userService.user | keyvalue">
+        <b>{{item.key}}</b>: <b>{{item.value}}</b>
+    </div>
+</div>
+<br>
+<h1>Get followers / followings</h1>
+<button mat-raised-button color="warn" (click)="onGetFollowers()">Get followers</button>
+<button mat-raised-button color="warn" (click)="onGetFollowing()">Get followers</button>
+<div *ngFor="let follow of this.follows">
+    <div *ngFor="let item of follow.follower | keyvalue">
+        <b>{{item.key}}</b>: <b>{{item.value}}</b>
+    </div>
+</div>
+
+<div *ngFor="let follow of this.follows">
+    <div *ngFor="let item of follow.followee | keyvalue">
+        <b>{{item.key}}</b>: <b>{{item.value}}</b>
+    </div>
+</div>
+<br>
+<h1>Follow</h1>
+<button mat-raised-button color="warn" (click)="onFollow()">follow 6275d38d64a2569382f7622a</button>
+<h1>unFollow</h1>
+<button mat-raised-button color="warn" (click)="onUnfollow()">unFollow 6275d38d64a2569382f7622a</button>

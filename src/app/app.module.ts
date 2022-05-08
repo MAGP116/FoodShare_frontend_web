@@ -13,9 +13,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatFormFieldModule, } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatMenuModule} from '@angular/material/menu';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component'; 
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { FileButtonComponent } from './components/file-button/file-button.component';
+import { TestComponent } from './pages/test/test.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     HomeComponent,
     LoginFormComponent,
     NotFoundComponent,
+    FileButtonComponent,
+    TestComponent,
+    ProfileComponent,
     
   ],
   imports: [
@@ -35,8 +43,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
     ReactiveFormsModule
   ],
   providers: [],
