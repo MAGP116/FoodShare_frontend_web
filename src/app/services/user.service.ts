@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getUser(id:string){
-    return this.http.get<UserInterface|null>(`${this.url}/user/id/${id}`,{withCredentials:true});
+    return this.http.get<UserInterface|null>(`${this.url}/user/${id}`,{withCredentials:true});
   }
 }
 
