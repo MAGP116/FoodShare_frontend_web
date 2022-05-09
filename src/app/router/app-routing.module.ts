@@ -6,12 +6,14 @@ import { NotFoundComponent } from '../pages/not-found/not-found.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { TestComponent } from '../pages/test/test.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
+import { NewPostComponent } from '../pages/new-post/new-post.component';
 
 const routes: Routes = [
     {path: "", component:LoginComponent, canActivate:[AuthGuard],},
     {path: "home", component:HomeComponent, canActivate:[AuthGuard],},
     {path: "test", component:TestComponent,canActivate:[AuthGuard],},
     {path: "profile/:id",component:ProfileComponent,canActivate:[AuthGuard],},
+    {path: "new-post",component:NewPostComponent,canActivate:[AuthGuard],},
     {path: '**', component:NotFoundComponent}
 ];
 
