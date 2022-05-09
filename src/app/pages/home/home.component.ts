@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService, postInterface } from 'src/app/services/home.service';
+import { HomeService, PostInterface } from 'src/app/services/home.service';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { mergeMap } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   isSelf: boolean = false;
-  posts: Array<postInterface> = [];
+  posts: Array<PostInterface> = [];
 
   constructor(
     private readonly route: ActivatedRoute,

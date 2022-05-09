@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {UserPreviewInterface} from '../services/user.service'
 
 
-export interface postInterface {
+export interface PostInterface {
   image: string;
   description: string;
   publishedAt: Date;
@@ -20,7 +20,7 @@ export class HomeService {
   constructor(private readonly http: HttpClient) {}
 
   getPosts() {
-    return this.http.get<postInterface[]>(`${this.url}post`, {
+    return this.http.get<PostInterface[]>(`${this.url}post`, {
       withCredentials: true,
     });
   }

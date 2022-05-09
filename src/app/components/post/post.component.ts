@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { postInterface } from 'src/app/services/home.service';
+import { PostInterface } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-post',
@@ -7,7 +7,7 @@ import { postInterface } from 'src/app/services/home.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  @Input() post: postInterface | null = null;
+  @Input() post: PostInterface | null = null;
 
   
 
