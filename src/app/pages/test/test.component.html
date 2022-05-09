@@ -16,15 +16,9 @@
 <br>
 <h1>Get followers / followings</h1>
 <button mat-raised-button color="warn" (click)="onGetFollowers()">Get followers</button>
-<button mat-raised-button color="warn" (click)="onGetFollowing()">Get followers</button>
+<button mat-raised-button color="warn" (click)="onGetFollowing()">Get following</button>
 <div *ngFor="let follow of this.follows">
-    <div *ngFor="let item of follow.follower | keyvalue">
-        <b>{{item.key}}</b>: <b>{{item.value}}</b>
-    </div>
-</div>
-
-<div *ngFor="let follow of this.follows">
-    <div *ngFor="let item of follow.followee | keyvalue">
+    <div *ngFor="let item of follow | keyvalue">
         <b>{{item.key}}</b>: <b>{{item.value}}</b>
     </div>
 </div>
