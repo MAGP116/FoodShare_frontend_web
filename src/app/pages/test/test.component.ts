@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { followInterface, FollowService } from 'src/app/services/follow.service';
-import { UserInterface, UserService } from 'src/app/services/user.service';
+import { followInterface, FollowService } from 'src/app/services/follow/follow.service';
+import { UserInterface, UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-test',

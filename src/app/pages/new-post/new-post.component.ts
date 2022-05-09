@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NewPostService } from 'src/app/services/new-post.service';
+import { NewPostService } from 'src/app/services/new-post/new-post.service';
 
 @Component({
   selector: 'app-new-post',

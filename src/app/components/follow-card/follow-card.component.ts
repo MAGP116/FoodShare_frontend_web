@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap } from 'rxjs';
-import { followInterface, FollowService } from 'src/app/services/follow.service';
-import { UserService } from 'src/app/services/user.service';
+import { followInterface, FollowService } from 'src/app/services/follow/follow.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-follow-card',

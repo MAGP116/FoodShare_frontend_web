@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { followInterface } from 'src/app/services/follow.service';
+import { followInterface } from 'src/app/services/follow/follow.service';
 
 
 @Component({
