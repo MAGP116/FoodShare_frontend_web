@@ -15,13 +15,17 @@ import {MatFormFieldModule, } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatListModule} from '@angular/material/list'; 
 import { LoginFormComponent } from './pages/login/login-form/login-form.component'; 
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FileButtonComponent } from './components/file-button/file-button.component';
 import { TestComponent } from './pages/test/test.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FollowsDialogComponent } from './pages/profile/follows-dialog/follows-dialog.component';
+import { FollowCardComponent } from './components/follow-card/follow-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FileButtonComponent,
     TestComponent,
     ProfileComponent,
+    FollowsDialogComponent,
+    FollowCardComponent,
     
   ],
   imports: [
@@ -44,6 +50,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatListModule,
+    MatDialogModule,
     MatMenuModule,
     MatInputModule,
     MatGridListModule,

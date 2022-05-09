@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <div *ngIf="follows.length != 0; else elseTemplate">
+    <app-follow-card *ngFor="let follow of follows" [follow]="follow" [showUnfollow]="this.showUnfollow"></app-follow-card>
+  </div>
+  <ng-template #elseTemplate>
+    You dont have follows
+  </ng-template>
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>
