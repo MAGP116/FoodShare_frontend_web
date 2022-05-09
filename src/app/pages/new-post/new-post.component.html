@@ -1,0 +1,17 @@
+<div class="center">
+  <h1>New post</h1>
+  <div class="m-1">
+    <app-file-button [fileName]="filename" (selected)="onFileSelect($event)"></app-file-button>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput type="text" placeholder="Description"></textarea>
+    <button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="warn" (click)="sumbit()">Create</button>
+  </div>
+</div>
+

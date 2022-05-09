@@ -24,6 +24,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FileButtonComponent } from './components/file-button/file-button.component';
 import { TestComponent } from './pages/test/test.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
 import { FollowsDialogComponent } from './pages/profile/follows-dialog/follows-dialog.component';
 import { FollowCardComponent } from './components/follow-card/follow-card.component';
 import { PostComponent } from './components/post/post.component';
@@ -38,6 +39,7 @@ import { PostComponent } from './components/post/post.component';
     FileButtonComponent,
     TestComponent,
     ProfileComponent,
+    NewPostComponent,
     FollowsDialogComponent,
     FollowCardComponent,
     PostComponent,
