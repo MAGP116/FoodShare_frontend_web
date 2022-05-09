@@ -26,6 +26,7 @@ import { TestComponent } from './pages/test/test.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FollowsDialogComponent } from './pages/profile/follows-dialog/follows-dialog.component';
 import { FollowCardComponent } from './components/follow-card/follow-card.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FollowCardComponent } from './components/follow-card/follow-card.compon
     ProfileComponent,
     FollowsDialogComponent,
     FollowCardComponent,
+    PostComponent,
     
   ],
   imports: [

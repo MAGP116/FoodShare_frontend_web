@@ -1,0 +1,20 @@
+<mat-card class="post-card" *ngIf="post != null">
+    <mat-card-header>
+        <div mat-card-avatar style="background-image: url({{post.userId.image}}); background-size: cover;"></div>
+      <mat-card-title>{{post.userId.name}}</mat-card-title>
+      <mat-card-subtitle>{{post.userId.username}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{post.image}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{post.userId.username}}:  {{post.description}}
+      </p>
+      <p>
+          Date: {{post.publishedAt |  date:'MM/dd/yyyy'}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button><mat-icon class="example-icon" aria-hidden="false">favorite</mat-icon></button>
+      <button mat-button><mat-icon class="example-icon" aria-hidden="false">question_answer</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
