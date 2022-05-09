@@ -17,7 +17,7 @@
     <mat-grid-tile  colspan="2" rowspan="2">
         <button mat-flat-button>
             <b>Posts</b>
-            <p>0</p>
+            <p>{{posts.length}}</p>
             
         </button>
         <button mat-flat-button (click)="openFollows()">
@@ -41,6 +41,6 @@
 </mat-grid-list>
 <mat-grid-list cols="6" rowHeight="1:1" *ngIf="user != null">
     <mat-grid-tile colspan="1" rowspan="1" *ngFor="let post of posts">
-        <img src="{{post.image}}" alt="">
+        <app-mini-post-image [post]="post"></app-mini-post-image>
     </mat-grid-tile>
 </mat-grid-list>

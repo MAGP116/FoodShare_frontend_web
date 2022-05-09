@@ -25,9 +25,11 @@ import { FileButtonComponent } from './components/file-button/file-button.compon
 import { TestComponent } from './pages/test/test.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
-import { FollowsDialogComponent } from './pages/profile/follows-dialog/follows-dialog.component';
+import { FollowsDialogComponent } from './components/follows-dialog/follows-dialog.component';
 import { FollowCardComponent } from './components/follow-card/follow-card.component';
 import { PostComponent } from './components/post/post.component';
+import { MiniPostImageComponent } from './components/mini-post-image/mini-post-image.component';
+import { MiniPostDialogComponent } from './components/mini-post-dialog/mini-post-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { PostComponent } from './components/post/post.component';
     FollowsDialogComponent,
     FollowCardComponent,
     PostComponent,
+    MiniPostImageComponent,
+    MiniPostDialogComponent,
     
   ],
   imports: [

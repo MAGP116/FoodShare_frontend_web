@@ -4,7 +4,7 @@ import { mergeMap } from 'rxjs';
 import { followCountInterface, followInterface, FollowService } from 'src/app/services/follow.service';
 import { UserInterface, UserService } from 'src/app/services/user.service';
 import {MatDialog} from '@angular/material/dialog';
-import { FollowsDialogComponent } from './follows-dialog/follows-dialog.component';
+import { FollowsDialogComponent } from '../../components/follows-dialog/follows-dialog.component';
 import { PostInterface, PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -22,8 +22,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly userService: UserService,
-    public readonly followService: FollowService,
-    public readonly postService: PostService,
+    private readonly followService: FollowService,
+    private readonly postService: PostService,
     private readonly dialog:MatDialog) {
     this.route.params
     .pipe(
@@ -67,6 +67,8 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
+
+
 
   ngOnInit(): void {
 

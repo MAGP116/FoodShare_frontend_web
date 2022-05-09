@@ -8,7 +8,7 @@ export interface PostInterface {
   description: string;
   publishedAt: Date;
   userId:UserPreviewInterface;
-  __v: number;
+  _id: string;
 }
 
 @Injectable({
@@ -27,6 +27,17 @@ export class PostService {
 
   getUserPosts(id:string){
     return this.http.get<PostInterface[]>(`${this.url}post/user/${id}`, {
+      withCredentials: true,
+    });
+  }
+  getPost(id:string){
+    return this.http.get<PostInterface>(`${this.url}post/${id}`, {
+      withCredentials: true,
+    });
+  }
+
+  delete(id:string){
+    return this.http.delete<void>(`${this.url}post/${id}`, {
       withCredentials: true,
     });
   }

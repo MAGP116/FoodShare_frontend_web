@@ -1,0 +1,16 @@
+
+<div mat-dialog-content>
+  <div *ngIf="post != null; else elseTemplate">
+      <app-post [post]="post"></app-post>
+  </div>
+  <ng-template #elseTemplate>
+    Post was not found
+  </ng-template>
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button mat-dialog-close color="warn" (click)="onDelete()"
+  *ngIf="this.userService.user!._id === this.post!.userId._id"
+  >delete</button>
+</div>
