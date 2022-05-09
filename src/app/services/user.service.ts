@@ -1,6 +1,22 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
+export interface UserInterface {
+  _id: string;
+  username : string;
+  email:string;
+  name:string;
+  description:string;
+  image:string
+}
+
+export interface UserPreviewInterface{
+  _id: string;
+  username:string;
+  name:string;
+  image:string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,20 +41,3 @@ export class UserService {
     return this.http.get<UserInterface|null>(`${this.url}/user/${id}`,{withCredentials:true});
   }
 }
-
-export interface UserInterface {
-  _id: string;
-  username : string;
-  email:string;
-  name:string;
-  description:string;
-  image:string
-}
-
-export interface UserPreviewInterface{
-  _id: string;
-  username:string;
-  name:string;
-  image:string;
-}
-
