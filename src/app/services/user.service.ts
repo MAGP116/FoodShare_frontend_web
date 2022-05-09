@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getUser(id:string){
-    return this.http.get<UserInterface|null>(`${this.url}/user/id/${id}`,{withCredentials:true});
+    return this.http.get<UserInterface|null>(`${this.url}/user/${id}`,{withCredentials:true});
   }
 }
 
@@ -33,5 +33,12 @@ export interface UserInterface {
   name:string;
   description:string;
   image:string
+}
+
+export interface UserPreviewInterface{
+  _id: string;
+  username:string;
+  name:string;
+  image:string;
 }
 
