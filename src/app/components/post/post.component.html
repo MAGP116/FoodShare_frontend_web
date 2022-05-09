@@ -7,10 +7,10 @@
     <img mat-card-image src="{{post.image}}" alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p>
-        {{post.description}}
+        {{post.userId.username}}:  {{post.description}}
       </p>
       <p>
-          {{post.publishedAt |  date:'MM/dd/yyyy'}}
+          Date: {{post.publishedAt |  date:'MM/dd/yyyy'}}
       </p>
     </mat-card-content>
     <mat-card-actions>
