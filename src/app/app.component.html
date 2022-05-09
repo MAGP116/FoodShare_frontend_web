@@ -3,6 +3,14 @@
     <span>FoodShare</span>
     
     <button mat-flat-button routerLink="/home" routerLinkActive="active" color="warn" *ngIf="this.userService.user !== null">Home</button>
+
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-icon>search</mat-icon>
+        <input matInput placeholder="search">
+      </mat-form-field>
+    </form>
+    
     <span class="spacer"></span>
     <div *ngIf="this.userService.user !== null">
       <button mat-flat-button color="warn" [matMenuTriggerFor]="menu">
