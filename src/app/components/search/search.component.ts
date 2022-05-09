@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  SearchUserService,
-  UserSearch,
-} from '../../services/search-user.service';
 import { debounceTime, forkJoin, map, of, startWith, Subject, switchMap } from 'rxjs';
+import { SearchUserService, UserSearch,} from '../../services/search-user/search-user.service';
+
 
 @Component({
   selector: 'app-search',

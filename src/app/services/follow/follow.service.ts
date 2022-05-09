@@ -28,7 +28,7 @@ export class FollowService {
     return this.http.post<Array<followInterface>>(`${this.url}/follows/${id}`,{},{withCredentials:true});
   }
   unfollow(id:string){
-    return this.http.delete<void>(`${this.url}/follows/${id}`,{withCredentials:true});
+    return this.http.delete<void>(`${this.url}/follows/${id}`,{withCredentials:true,});
   }
 }
 

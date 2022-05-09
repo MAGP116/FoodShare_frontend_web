@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { mergeMap } from 'rxjs';
-import { followCountInterface, followInterface, FollowService } from 'src/app/services/follow.service';
-import { UserInterface, UserService } from 'src/app/services/user.service';
+import { followCountInterface, followInterface, FollowService } from 'src/app/services/follow/follow.service';
+import { UserInterface, UserService } from 'src/app/services/user/user.service';
 import {MatDialog} from '@angular/material/dialog';
 import { FollowsDialogComponent } from '../../components/follows-dialog/follows-dialog.component';
-import { PostInterface, PostService } from 'src/app/services/post.service';
+import { PostInterface, PostService } from 'src/app/services/post/post.service';
 
 @Component({
   selector: 'app-profile',

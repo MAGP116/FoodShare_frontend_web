@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PostInterface, PostService } from 'src/app/services/post.service';
-import { UserService } from 'src/app/services/user.service';
+import { PostInterface, PostService } from 'src/app/services/post/post.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-mini-post-dialog',
