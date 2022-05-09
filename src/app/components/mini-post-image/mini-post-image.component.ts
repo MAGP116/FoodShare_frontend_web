@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PostInterface, PostService } from 'src/app/services/post.service';
-import { UserService } from 'src/app/services/user.service';
 import { MiniPostDialogComponent } from '../mini-post-dialog/mini-post-dialog.component';
 
 @Component({
