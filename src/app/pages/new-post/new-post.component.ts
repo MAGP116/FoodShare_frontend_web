@@ -5,34 +5,37 @@ import { NewPostService } from 'src/app/services/new-post.service';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.css']
+  styleUrls: ['./new-post.component.css'],
 })
 export class NewPostComponent implements OnInit {
-  description: string = "";
+  description: string = '';
   image: File | null = null;
-  filename: string = "";
+  filename: string = '';
 
-  constructor(private readonly newPostService: NewPostService, private router: Router) { }
+  constructor(
+    private readonly newPostService: NewPostService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onFileSelect(file:File){
+  onFileSelect(file: File) {
     this.image = file;
     this.filename = this.image.name;
   }
 
-  sumbit(){
-    if (this.image == null){
+  sumbit() {
+    if (this.image == null) {
       return;
     }
     const formData = new FormData();
-    formData.append("description", this.description);
-    formData.append("image", this.image);
-    this.newPostService.createPost(formData).subscribe({next: (post) => {
-      console.log(post);
-      this.router.navigate(["/home"]);
-    }});
+    formData.append('description', this.description);
+    formData.append('image', this.image);
+    this.newPostService.createPost(formData).subscribe({
+      next: (post) => {
+        console.log(post);
+        this.router.navigate(['/home']);
+      },
+    });
   }
-
 }

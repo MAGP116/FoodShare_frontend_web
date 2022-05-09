@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService, PostInterface } from 'src/app/services/post.service';
 import { ActivatedRoute } from '@angular/router';
-import { mergeMap } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +16,7 @@ export class HomeComponent implements OnInit {
     private readonly HomeService: PostService
   ) {
 
-    this.HomeService.getPosts().subscribe((response: any) => {   
-      console.log(response);
-         
+    this.HomeService.getPosts().subscribe((response: any) => {            
       this.posts = response
     });
   }
