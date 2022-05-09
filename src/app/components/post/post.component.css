@@ -1,5 +1,9 @@
 .post-card {
   max-width: 500px;
   margin-bottom: 50px;
-  margin-top: 50px
+  margin-top: 50px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
