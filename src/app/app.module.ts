@@ -6,7 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './router/app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatButtonModule} from '@angular/material/button'; 
@@ -51,7 +51,7 @@ import { MiniPostDialogComponent } from './components/mini-post-dialog/mini-post
   ],
   imports: [
     BrowserModule,
-    
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
