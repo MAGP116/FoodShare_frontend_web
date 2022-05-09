@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService, PostInterface } from 'src/app/services/home.service';
+import { PostService, PostInterface } from 'src/app/services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap } from 'rxjs';
 
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly HomeService: HomeService
+    private readonly HomeService: PostService
   ) {
 
     this.HomeService.getPosts().subscribe((response: any) => {   
