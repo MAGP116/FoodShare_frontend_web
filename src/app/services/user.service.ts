@@ -35,3 +35,10 @@ export interface UserInterface {
   image:string
 }
 
+export interface UserPreviewInterface{
+  _id: string;
+  username:string;
+  name:string;
+  image:string;
+}
+
