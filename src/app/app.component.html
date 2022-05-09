@@ -3,6 +3,8 @@
     <span>FoodShare</span>
     
     <button mat-flat-button routerLink="/home" routerLinkActive="active" color="warn" *ngIf="this.userService.user !== null">Home</button>
+    <button mat-flat-button routerLink="/new-post" routerLinkActive="active" color="warn" *ngIf="this.userService.user !== null"><mat-icon>add</mat-icon></button>
+
     <span class="spacer"></span>
     <div *ngIf="this.userService.user !== null">
       <button mat-flat-button color="warn" [matMenuTriggerFor]="menu">
