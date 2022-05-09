@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchUserService } from '../../services/search-user/search-user.service';
-import { debounceTime } from 'rxjs/operators';
-import { fromEvent, Subject } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { debounceTime, forkJoin, map, of, startWith, Subject, switchMap } from 'rxjs';
+import { SearchUserService, UserSearch,} from '../../services/search-user/search-user.service';
+
 
 @Component({
   selector: 'app-search',
@@ -10,23 +9,30 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  data = [];
-  subject: Subject<any> = new Subject();
-  autoCompletFormControl = new FormControl();
+  data: UserSearch[] = [];
+  searchUser$ = new Subject();
   constructor(private readonly SearchUserService: SearchUserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
   getUsersSearch(name: any) {
     const keywork = name.target.value;
-    // const debounceExample = keywork.pipe(debounce(() => timer(6000)));
-    // const result = debounceExample.subscribe((val: any) => {
-    //   console.log('Val:', val);
-    //   console.log("Val2: ", debounceExample);
-    // });
 
-    this.SearchUserService.getUser(keywork).subscribe((response: any) => {
-      this.data = response
-      console.log(this.data);
-    });
+    // const debounceExample = keywork.pipe(debounceTime(3000));
+    // console.log(debounceExample);
+    
+    this.searchUser$
+      .pipe(
+        startWith(''),
+        debounceTime(2000),
+        switchMap(() => {
+          return forkJoin([this.SearchUserService.getUser(keywork)]);
+        })
+      )
+      .subscribe((response:any)=>{
+        console.log(response)
+        this.data = response
+      });
   }
 }
