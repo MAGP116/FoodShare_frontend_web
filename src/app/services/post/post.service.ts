@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {UserPreviewInterface} from './user.service'
+import {UserPreviewInterface} from '../user/user.service'
 
 
 export interface PostInterface {
