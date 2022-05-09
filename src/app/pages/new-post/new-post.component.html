@@ -5,7 +5,7 @@
   </div>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
-    <textarea matInput type="text" placeholder="Description"></textarea>
+    <textarea matInput type="text" placeholder="Description" [(ngModel)]="description"></textarea>
     <button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
       <mat-icon>close</mat-icon>
     </button>

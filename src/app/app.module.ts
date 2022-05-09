@@ -6,7 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './router/app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatButtonModule} from '@angular/material/button'; 
@@ -25,10 +25,12 @@ import { FileButtonComponent } from './components/file-button/file-button.compon
 import { TestComponent } from './pages/test/test.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
-import { FollowsDialogComponent } from './pages/profile/follows-dialog/follows-dialog.component';
+import { FollowsDialogComponent } from './components/follows-dialog/follows-dialog.component';
 import { FollowCardComponent } from './components/follow-card/follow-card.component';
 import { PostComponent } from './components/post/post.component';
 import { SearchComponent } from './components/search/search.component';
+import { MiniPostImageComponent } from './components/mini-post-image/mini-post-image.component';
+import { MiniPostDialogComponent } from './components/mini-post-dialog/mini-post-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +47,13 @@ import { SearchComponent } from './components/search/search.component';
     FollowCardComponent,
     PostComponent,
     SearchComponent,
+    MiniPostImageComponent,
+    MiniPostDialogComponent,
     
   ],
   imports: [
     BrowserModule,
-    
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
