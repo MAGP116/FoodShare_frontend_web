@@ -15,7 +15,9 @@ import {MatFormFieldModule, } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatListModule} from '@angular/material/list'; 
 import { LoginFormComponent } from './pages/login/login-form/login-form.component'; 
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -23,6 +25,9 @@ import { FileButtonComponent } from './components/file-button/file-button.compon
 import { TestComponent } from './pages/test/test.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
+import { FollowsDialogComponent } from './pages/profile/follows-dialog/follows-dialog.component';
+import { FollowCardComponent } from './components/follow-card/follow-card.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,9 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
     TestComponent,
     ProfileComponent,
     NewPostComponent,
+    FollowsDialogComponent,
+    FollowCardComponent,
+    PostComponent,
     
   ],
   imports: [
@@ -46,6 +54,8 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatListModule,
+    MatDialogModule,
     MatMenuModule,
     MatInputModule,
     MatGridListModule,

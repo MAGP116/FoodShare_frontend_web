@@ -1,0 +1,8 @@
+<mat-card *ngIf="show">
+    <mat-card-header>
+      <img mat-card-avatar src="{{follow?.image}}" alt="avatar" width="80" height="80" class="avatar"><!--USER IMAGE-->
+      <mat-card-title>{{follow?.name}}         <button *ngIf="this.showUnfollow" mat-stroked-button color="warn" (click)="onUnfollow()">Unfollow</button></mat-card-title>
+      <mat-card-subtitle>@{{follow?.username}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  

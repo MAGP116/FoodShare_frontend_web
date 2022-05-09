@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { followInterface, followResponseInterface, FollowService } from 'src/app/services/follow.service';
+import { followInterface, FollowService } from 'src/app/services/follow.service';
 import { UserInterface, UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { UserInterface, UserService } from 'src/app/services/user.service';
 export class TestComponent implements OnInit {
   fileName:String = '';
   file:File|null = null;
-  follows:Array<followResponseInterface> = [];
+  follows:Array<followInterface> = [];
   constructor(private readonly titleService: Title,
     public readonly userService: UserService,
     private readonly followService: FollowService) {
