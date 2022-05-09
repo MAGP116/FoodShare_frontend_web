@@ -22,6 +22,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FileButtonComponent } from './components/file-button/file-button.component';
 import { TestComponent } from './pages/test/test.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FileButtonComponent,
     TestComponent,
     ProfileComponent,
+    NewPostComponent,
     
   ],
   imports: [
