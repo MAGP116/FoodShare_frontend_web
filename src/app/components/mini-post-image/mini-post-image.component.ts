@@ -20,7 +20,6 @@ export class MiniPostImageComponent implements OnInit {
   }
 
   onClick(id:string){
-    console.log(id);
     this.postService.getPost(id).subscribe({next:(post)=>{
       var ref = this.dialog.open(MiniPostDialogComponent);
       ref.componentInstance.post = post;
