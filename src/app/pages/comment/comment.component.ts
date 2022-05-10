@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { mergeMap } from 'rxjs';
-import { PostInterface, PostService } from '../../services/post/post.service';
+import { CommentPageService } from 'src/app/comment-page.service';
 
 @Component({
   selector: 'app-comment',
@@ -9,15 +8,12 @@ import { PostInterface, PostService } from '../../services/post/post.service';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-  post:PostInterface|null = null;
   constructor(private readonly route: ActivatedRoute,
-    private readonly postService: PostService,
+    public readonly commentPage: CommentPageService,
     ){
-      this.route.params.pipe(
-        mergeMap((params)=>this.postService.getPost(params["id"])),
-      ).subscribe({
-        next:(post)=>{
-          this.post = post;
+      this.route.params.subscribe({
+        next:(params)=>{
+          this.commentPage.load(params["id"]);
         }
       })
     }

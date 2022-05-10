@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="columnInput">
+        <mat-form-field appearance="outline">
+            <mat-label>Comment</mat-label>
+            <textarea matInput type="text" placeholder="comment" [(ngModel)]="text"></textarea>
+            <mat-hint>Insert your comment</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="columnButton">
+        <button *ngIf="this.text!=''" mat-raised-button color="warn" (click)="sumbit()">Create</button>
+    </div>
+</div> 

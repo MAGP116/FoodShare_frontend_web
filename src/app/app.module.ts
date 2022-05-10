@@ -29,10 +29,12 @@ import { FollowsDialogComponent } from './components/follows-dialog/follows-dial
 import { FollowCardComponent } from './components/follow-card/follow-card.component';
 import { PostComponent } from './components/post/post.component';
 import { SearchComponent } from './components/search/search.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import { MiniPostImageComponent } from './components/mini-post-image/mini-post-image.component';
 import { MiniPostDialogComponent } from './components/mini-post-dialog/mini-post-dialog.component';
 import { CommentComponent } from './pages/comment/comment.component';
 import { CommentCardComponent } from './components/comment-card/comment-card.component';
+import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { CommentCardComponent } from './components/comment-card/comment-card.com
     MiniPostDialogComponent,
     CommentComponent,
     CommentCardComponent,
+    CommentFormComponent,
     
   ],
   imports: [
@@ -67,6 +70,7 @@ import { CommentCardComponent } from './components/comment-card/comment-card.com
     MatListModule,
     MatDialogModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
     MatInputModule,
     MatGridListModule,
     MatFormFieldModule,

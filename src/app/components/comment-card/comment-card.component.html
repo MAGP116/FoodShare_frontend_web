@@ -1,17 +1,20 @@
-<mat-card>
-    <mat-grid-list cols="100" rowHeight="1:1">
-        <mat-grid-tile colspan="20" rowspan="20">
-            <img class="avatar" src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="">
-        </mat-grid-tile>
-        <mat-grid-tile colspan="80" rowspan="5">
-            <h3 class="text">dasdasdasdsadsaaaaaaaadasdsas</h3>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="80" rowspan="5">
-            <small class="text">ddadsadaada</small>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="80" rowspan="5">
-            dasdasdasdsadsaaaaaaaadasdsas
-        </mat-grid-tile>
-    </mat-grid-list>
-</mat-card>
+<div class="row" *ngIf="this.comment != null">
+    <div class="columnAvatar" *ngIf="this.userService.user!._id !== this.comment!.userId._id">
+        <a href="/profile/{{this.comment.userId._id}}"><img class="avatar" src="{{this.comment!.userId.image}}" alt=""></a>
+    </div>
+    <div class="columnText">
+        <mat-card>
+            <mat-card-title>{{this.comment!.userId.name}}</mat-card-title>
+            <mat-card-subtitle>@{{this.comment!.userId.username}}</mat-card-subtitle>
+            <mat-card-content><p>{{this.comment!.text}}</p></mat-card-content>
+            <mat-card-actions *ngIf="this.userService.user!._id === this.comment!.userId._id">
+                <button mat-button color="warn" (click)="onDelete()">delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="columnSpace"><p></p></div>
+    <div class="columnAvatar" *ngIf="this.userService.user!._id === this.comment!.userId._id">
+        <a href="/profile/{{this.comment.userId._id}}"><img class="avatar" src="{{this.comment!.userId.image}}" alt=""></a>
+    </div>
+</div>
 
