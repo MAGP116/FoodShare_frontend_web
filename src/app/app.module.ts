@@ -35,6 +35,7 @@ import { MiniPostDialogComponent } from './components/mini-post-dialog/mini-post
 import { CommentComponent } from './pages/comment/comment.component';
 import { CommentCardComponent } from './components/comment-card/comment-card.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { SearchUserComponent } from './pages/search-user/search-user.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
     CommentComponent,
     CommentCardComponent,
     CommentFormComponent,
+    SearchUserComponent,
     
   ],
   imports: [

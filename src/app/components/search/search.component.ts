@@ -24,7 +24,6 @@ export class SearchComponent implements OnInit {
     
     this.searchUser$
       .pipe(
-        startWith(''),
         debounceTime(2000),
         switchMap(() => {
           return forkJoin([this.SearchUserService.getUser(keywork)]);
