@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap } from 'rxjs';
-import { PostInterface, PostService } from 'src/app/services/post/post.service';
+import { PostInterface, PostService } from '../../services/post/post.service';
 
 @Component({
   selector: 'app-comment',
@@ -15,7 +15,6 @@ export class CommentComponent implements OnInit {
     ){
       this.route.params.pipe(
         mergeMap((params)=>this.postService.getPost(params["id"])),
-        //TODO: ADD COMMENTS
       ).subscribe({
         next:(post)=>{
           this.post = post;
