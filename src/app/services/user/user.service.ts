@@ -28,11 +28,15 @@ export class UserService {
   uploadProfileImage(file:File){
     let formData:FormData = new FormData();
     formData.append('file', file, file.name);
-    return this.http.post(`${this.url}/user/profilePicture`, formData, {withCredentials: true,headers:{'Accept': 'application/json'}});
+    this.http.post(`${this.url}/user/profilePicture`, formData, {withCredentials: true,headers:{'Accept': 'application/json'}}).subscribe({
+      complete:()=>{
+        this.loadUser();
+      }
+    })
   }
 
   loadUser(){
-    return this.http.get<UserInterface|null>(`${this.url}/user`,{withCredentials:true}).subscribe({next:(val)=>{
+    this.http.get<UserInterface|null>(`${this.url}/user`,{withCredentials:true}).subscribe({next:(val)=>{
       this.user = val;
     }})
   }

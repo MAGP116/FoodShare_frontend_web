@@ -17,7 +17,6 @@ export class PostComponent implements OnInit {
 
   constructor(private readonly likeService: LikeService,
     private readonly authService:AuthService) {
-      console.log(this.post);
   }
 
   onFav(){
@@ -42,7 +41,6 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.post);
     this.likeService.getCountByPost(this.post!._id).pipe(
     ).subscribe({next:(likes)=>{
       this.likes = likes.count;
@@ -53,7 +51,6 @@ export class PostComponent implements OnInit {
       mergeMap(
         (res)=>iif(
           ()=>{
-            console.log(res);
             return res.status==200
           },
           this.likeService.likedByUser(this.post!._id),

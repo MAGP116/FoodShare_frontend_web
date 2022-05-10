@@ -13,19 +13,16 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(state.url === "/"){//login page
         return this.authService.isAuthenticated().pipe(map(response =>{
-          console.log(response);
           if(response.status === 200){
             this.router.navigate(['/home']);
           }
           return response.status !== 200
         }),catchError(err=>{
-          console.log(err);
           this.router.navigate(['/home']);
           return of(false)
         }))
       }
       return this.authService.isAuthenticated().pipe(map(response =>{
-        console.log('Respuesta',response);
         if(response.status !== 200){
           this.router.navigate(['/']);
         }
