@@ -1,0 +1,34 @@
+.avatar{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.text{
+    margin-right: auto;
+}
+/*-------*/
+.columnAvatar {
+    float: left;
+    width: 25%;
+}
+.columnText {
+    float: left;
+    width: 70%;
+}
+.columnSpace{
+    float: left;
+    width: 5%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p{
+    overflow: hidden;
+}

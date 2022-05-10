@@ -15,8 +15,12 @@ const routes: Routes = [
     {path: "test", component:TestComponent,canActivate:[AuthGuard],},
     {path: "profile/:id",component:ProfileComponent,canActivate:[AuthGuard],},
     {path: "new-post",component:NewPostComponent,canActivate:[AuthGuard],},
+<<<<<<< HEAD
+    {path: "post/:id",component:CommentComponent,canActivate:[AuthGuard],},
+=======
     {path: "search",component:SearchUserComponent},
     {path: "post/:id",component:CommentComponent,},
+>>>>>>> main
     {path: '**', component:NotFoundComponent}
 ];
 

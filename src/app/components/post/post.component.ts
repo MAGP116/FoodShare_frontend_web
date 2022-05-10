@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { combineLatestWith, iif, mergeMap, of } from 'rxjs';
+import { iif, mergeMap, of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LikeService } from 'src/app/services/like/like.service';
 import { PostInterface } from 'src/app/services/post/post.service';
-import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-post',

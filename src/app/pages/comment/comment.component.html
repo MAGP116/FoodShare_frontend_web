@@ -1,1 +1,5 @@
-<app-post [post]="this.post" [inComments]="true" *ngIf="this.post != null"></app-post>
+<div *ngIf="this.commentPage.post != null">
+    <app-post [post]="this.commentPage.post" [inComments]="true"></app-post>
+    <app-comment-form [postId]="this.commentPage.post!._id"></app-comment-form>
+</div>
+<app-comment-card *ngFor="let comment of this.commentPage.comments" [comment]="comment"></app-comment-card>
