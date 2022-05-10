@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   logOut(){
-    return this.http
+    return this.http.get(`${this.url}/auth/logout`,{ withCredentials: true })
   }
 }
 export interface AuthResponseInterface {
