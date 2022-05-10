@@ -1,9 +1,9 @@
 <div>
+    <button type="button" (click)="fileInput.click()" mat-mini-fab color="warn">
+        <mat-icon>attach_file</mat-icon>
+        <input #fileInput type="file" (change)="onSelectedFile($event)" style="display:none;" accept="image/*"/>
+    </button>
     <span>
         {{fileName === ''?'Not file selected':fileName}}
     </span>
-    <button type="button" (click)="fileInput.click()" mat-mini-fab color="warn">
-        <mat-icon>attach_file</mat-icon>
-        <input #fileInput type="file" (change)="onSelectedFile($event)" style="display:none;" />
-    </button>
 </div>

@@ -1,0 +1,7 @@
+<app-user-inputs *ngIf="this.userService != null"
+    [name]="this.userService.user?.name || ''"
+    [email]="this.userService.user?.email ||''"
+    [description]="this.userService.user?.description || ''"
+    [username]="this.userService.user?.username||''"
+    (submit)="onSubmit($event)"
+></app-user-inputs>

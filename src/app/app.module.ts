@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatCardModule} from '@angular/material/card'; 
@@ -36,6 +37,8 @@ import { CommentComponent } from './pages/comment/comment.component';
 import { CommentCardComponent } from './components/comment-card/comment-card.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 import { SearchUserComponent } from './pages/search-user/search-user.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { UserInputsComponent } from './components/user-inputs/user-inputs.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,8 @@ import { SearchUserComponent } from './pages/search-user/search-user.component';
     CommentCardComponent,
     CommentFormComponent,
     SearchUserComponent,
+    EditProfileComponent,
+    UserInputsComponent,
     
   ],
   imports: [
@@ -76,6 +81,7 @@ import { SearchUserComponent } from './pages/search-user/search-user.component';
     MatInputModule,
     MatGridListModule,
     MatFormFieldModule,
+    MatProgressBarModule,
     MatIconModule,
     ReactiveFormsModule
   ],

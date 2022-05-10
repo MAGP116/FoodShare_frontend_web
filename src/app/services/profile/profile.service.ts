@@ -49,7 +49,6 @@ export class ProfileService {
           )
         ),
     ).subscribe({next:(val)=>{
-      console.log(val)
       this.followed = val;
     }})
     this.followService.getCountFollowers(this.id).subscribe({
