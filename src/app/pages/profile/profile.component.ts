@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
-import { mergeMap } from 'rxjs';
-import { followCountInterface, followInterface, FollowService } from 'src/app/services/follow/follow.service';
-import { UserInterface, UserService } from 'src/app/services/user/user.service';
+import { ActivatedRoute, Router} from '@angular/router';
+import {FollowService } from 'src/app/services/follow/follow.service';
 import {MatDialog} from '@angular/material/dialog';
 import { FollowsDialogComponent } from '../../components/follows-dialog/follows-dialog.component';
-import { PostInterface, PostService } from 'src/app/services/post/post.service';
 import { ProfileService } from 'src/app/services/profile/profile.service';
 
 @Component({
@@ -17,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
+    private readonly router: Router,
     private readonly followService: FollowService,
     public readonly profile:ProfileService,
     private readonly dialog:MatDialog) {
@@ -32,7 +30,7 @@ export class ProfileComponent implements OnInit {
         var ref = this.dialog.open(FollowsDialogComponent);
         console.log(follows);
         ref.componentInstance.follows = follows;
-        ref.componentInstance.title = 'your followers';
+        ref.componentInstance.title = 'followers';
         ref.componentInstance.showUnfollow = false;
       }
     });
@@ -43,7 +41,7 @@ export class ProfileComponent implements OnInit {
       next:(follows)=>{
         var ref = this.dialog.open(FollowsDialogComponent);
         ref.componentInstance.follows = follows;
-        ref.componentInstance.title = 'your follows';
+        ref.componentInstance.title = 'follows';
         ref.componentInstance.showUnfollow = this.profile.isSelf;
       }
     });
@@ -66,6 +64,10 @@ export class ProfileComponent implements OnInit {
       this.profile.followed = false;
       this.profile.followers -= 1;
     }})
+  }
+
+  onEdit(){
+    this.router.navigate(['/edit/profile']);
   }
 
   ngOnInit(): void {

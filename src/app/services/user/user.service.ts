@@ -10,11 +10,24 @@ export interface UserInterface {
   image:string
 }
 
+export interface UserUpdateInterface {
+  username : string;
+  email:string;
+  name:string;
+  description:string;
+  file:File|null;
+}
+
 export interface UserPreviewInterface{
   _id: string;
   username:string;
   name:string;
   image:string;
+}
+
+export interface UserImageInterface{
+  status:number;
+  url:string;
 }
 
 @Injectable({
@@ -33,6 +46,15 @@ export class UserService {
         this.loadUser();
       }
     })
+  }
+  uploadProfileImage2(file:File){
+    let formData:FormData = new FormData();
+    formData.append('file', file, file.name);
+    return this.http.post<UserImageInterface>(`${this.url}/user/profilePicture`, formData, {withCredentials: true,headers:{'Accept': 'application/json'}});
+  }
+
+  update(params:Object){
+    return this.http.put(`${this.url}/user`, params, {withCredentials: true,headers:{'Accept': 'application/json'}});
   }
 
   loadUser(){

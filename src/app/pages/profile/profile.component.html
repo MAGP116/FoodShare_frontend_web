@@ -24,7 +24,7 @@
             </button>
             <br>
             <div *ngIf="this.profile.isSelf">
-                <button mat-raised-button color="warn">Edit profile</button>
+                <button mat-raised-button color="warn" (click)="onEdit()">Edit profile</button>
             </div>
             <div *ngIf="!this.profile.isSelf">
                 <button *ngIf="!this.profile.followed" mat-raised-button color="warn" (click)="onFollow()">Follow</button>
