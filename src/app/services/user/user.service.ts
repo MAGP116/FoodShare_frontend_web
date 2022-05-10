@@ -41,15 +41,6 @@ export class UserService {
   uploadProfileImage(file:File){
     let formData:FormData = new FormData();
     formData.append('file', file, file.name);
-    this.http.post(`${this.url}/user/profilePicture`, formData, {withCredentials: true,headers:{'Accept': 'application/json'}}).subscribe({
-      complete:()=>{
-        this.loadUser();
-      }
-    })
-  }
-  uploadProfileImage2(file:File){
-    let formData:FormData = new FormData();
-    formData.append('file', file, file.name);
     return this.http.post<UserImageInterface>(`${this.url}/user/profilePicture`, formData, {withCredentials: true,headers:{'Accept': 'application/json'}});
   }
 

@@ -18,7 +18,7 @@ export class EditProfileComponent implements OnInit {
 
   onSubmit(event:UserUpdateInterface){
     if(event.file){
-      this.userService.uploadProfileImage2(event.file!).pipe(mergeMap(
+      this.userService.uploadProfileImage(event.file!).pipe(mergeMap(
         (url)=>this.userService.update({
           name:event.name,
           username:event.username,
