@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommentPageService } from 'src/app/comment-page.service';
+import { CommentPageService } from 'src/app/services/comment-page/comment-page.service';
 import { CommentInterface, CommentService } from 'src/app/services/comment/comment.service';
 import { UserService } from 'src/app/services/user/user.service';
 

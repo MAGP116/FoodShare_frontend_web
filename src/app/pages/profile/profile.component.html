@@ -1,46 +1,41 @@
 
-<mat-grid-list cols="6" rowHeight="6:1" *ngIf="user != null">
-    <mat-grid-tile colspan="1" rowspan="6">
-        <img src="{{user!.image}}" alt="profile image" class="avatar"><!--USER IMAGE-->
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="1">
-        <h2>{{user!.name}}</h2><!--NAME-->
-    </mat-grid-tile>
-    <mat-grid-tile colspan="3" rowspan="8">
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="1">
-        <i>username:</i><pre> </pre><h3>@{{user!.username}}</h3><!--USERNAME-->
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="1">
-        <i>{{user!.description}}</i><!--Description-->
-    </mat-grid-tile>
-    <mat-grid-tile  colspan="2" rowspan="2">
-        <button mat-flat-button>
-            <b>Posts</b>
-            <p>{{posts.length}}</p>
-            
-        </button>
-        <button mat-flat-button (click)="openFollows()">
-            <b>Follows</b>
-            <p>{{following}}</p>
-            
-        </button>
-        <button mat-flat-button (click)="openFollowers()">
-            <b>Followers</b>
-            <p>{{followers}}</p>
-            
-        </button>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="1">
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="1">
-        <div *ngIf="isSelf">
-            <button mat-raised-button color="warn" *ngIf="false">Edit profile</button>
+<mat-card>
+    <div class="row" *ngIf="this.profile.user != null">
+        <div class="columnAvatar">
+            <img src="{{this.profile.user!.image}}" alt="profile image" class="avatar">
         </div>
-    </mat-grid-tile>
-</mat-grid-list>
-<mat-grid-list cols="6" rowHeight="1:1" *ngIf="user != null">
-    <mat-grid-tile colspan="1" rowspan="1" *ngFor="let post of posts">
+        <div class="columnText">
+            <div class="text">
+                <h2>{{this.profile.user!.name}}</h2>
+            <h3>@{{this.profile.user!.username}}</h3>
+            <i>{{this.profile.user!.description}}</i>
+            <br>
+            <button mat-flat-button>
+                <b>Posts</b>
+                <p>{{this.profile.posts.length}}</p>
+            </button>
+            <button mat-flat-button (click)="openFollows()">
+                <b>Follows</b>
+                <p>{{this.profile.following}}</p>
+            </button>
+            <button mat-flat-button (click)="openFollowers()">
+                <b>Followers</b>
+                <p>{{this.profile.followers}}</p>
+            </button>
+            <br>
+            <div *ngIf="this.profile.isSelf">
+                <button mat-raised-button color="warn">Edit profile</button>
+            </div>
+            <div *ngIf="!this.profile.isSelf">
+                <button *ngIf="!this.profile.followed" mat-raised-button color="warn" (click)="onFollow()">Follow</button>
+                <button *ngIf="this.profile.followed" mat-stroked-button color="warn" (click)="onUnfollow()">Unfollow</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</mat-card>
+<mat-grid-list cols="6" rowHeight="1:1" *ngIf="this.profile.user != null">
+    <mat-grid-tile colspan="1" rowspan="1" *ngFor="let post of this.profile.posts">
         <app-mini-post-image [post]="post"></app-mini-post-image>
     </mat-grid-tile>
 </mat-grid-list>

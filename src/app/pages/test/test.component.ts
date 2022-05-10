@@ -29,9 +29,7 @@ export class TestComponent implements OnInit {
     if(this.file == null){
       return
     }
-    this.userService.uploadProfileImage(this.file).subscribe({next:(val)=>{
-      console.log(val);
-    }})
+    this.userService.uploadProfileImage(this.file);
   }
 
   onGetUser(){

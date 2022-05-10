@@ -30,6 +30,10 @@ export class FollowService {
   unfollow(id:string){
     return this.http.delete<void>(`${this.url}/follows/${id}`,{withCredentials:true,});
   }
+
+  isFollowed(id:string){
+    return this.http.get<boolean>(`${this.url}/follows/${id}/find`,{withCredentials:true});
+  }
 }
 
 export interface followInterface{

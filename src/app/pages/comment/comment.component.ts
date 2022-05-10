@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CommentPageService } from 'src/app/comment-page.service';
+import { CommentPageService } from 'src/app/services/comment-page/comment-page.service';
 
 @Component({
   selector: 'app-comment',

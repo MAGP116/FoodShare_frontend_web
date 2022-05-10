@@ -1,7 +1,7 @@
 
 <div mat-dialog-content>
   <div *ngIf="post != null; else elseTemplate">
-      <app-post [post]="post"></app-post>
+      <app-post [post]="post" [inComments]="true"></app-post>
   </div>
   <ng-template #elseTemplate>
     Post was not found
@@ -13,4 +13,5 @@
   <button mat-button mat-dialog-close color="warn" (click)="onDelete()"
   *ngIf="this.userService.user!._id === this.post!.userId._id"
   >delete</button>
+  <button mat-button mat-dialog-close (click)="onComment()">Comments</button>
 </div>
