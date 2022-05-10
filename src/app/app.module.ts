@@ -31,6 +31,7 @@ import { PostComponent } from './components/post/post.component';
 import { SearchComponent } from './components/search/search.component';
 import { MiniPostImageComponent } from './components/mini-post-image/mini-post-image.component';
 import { MiniPostDialogComponent } from './components/mini-post-dialog/mini-post-dialog.component';
+import { CommentComponent } from './pages/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MiniPostDialogComponent } from './components/mini-post-dialog/mini-post
     SearchComponent,
     MiniPostImageComponent,
     MiniPostDialogComponent,
+    CommentComponent,
     
   ],
   imports: [

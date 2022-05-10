@@ -7,6 +7,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { TestComponent } from '../pages/test/test.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
 import { NewPostComponent } from '../pages/new-post/new-post.component';
+import { CommentComponent } from '../pages/comment/comment.component';
 
 const routes: Routes = [
     {path: "", component:LoginComponent, canActivate:[AuthGuard],},
@@ -14,6 +15,7 @@ const routes: Routes = [
     {path: "test", component:TestComponent,canActivate:[AuthGuard],},
     {path: "profile/:id",component:ProfileComponent,canActivate:[AuthGuard],},
     {path: "new-post",component:NewPostComponent,canActivate:[AuthGuard],},
+    {path: "post/:id",component:CommentComponent,},
     {path: '**', component:NotFoundComponent}
 ];
 

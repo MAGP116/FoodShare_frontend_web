@@ -7,3 +7,4 @@ a {
   text-decoration: none;
   color: black;
 }
+button.link { background:none; border:none; cursor: pointer; color: #0645AD;}
