@@ -1,19 +1,27 @@
 <mat-toolbar color="warn">
   <mat-toolbar-row>
     <span>FoodShare</span>
-    
-    <button mat-flat-button routerLink="/home" routerLinkActive="active" color="warn" *ngIf="this.userService.user !== null">Home</button>
-    <button mat-flat-button routerLink="/new-post" routerLinkActive="active" color="warn" *ngIf="this.userService.user !== null"><mat-icon>add</mat-icon></button>
 
-
-   <app-search *ngIf="this.userService.user !== null"></app-search>
+    <button mat-flat-button routerLink="/home" routerLinkActive="active" color="warn"
+      *ngIf="this.userService.user !== null">Home</button>
     
+      <button mat-flat-button routerLink="/new-post" routerLinkActive="active" color="warn"
+      *ngIf="this.userService.user !== null">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <a href="/search">
+      <button mat-fab color="warn">
+        <mat-icon>search</mat-icon>
+      </button>
+    </a>
+
     <span class="spacer"></span>
     <div *ngIf="this.userService.user !== null">
       <button mat-flat-button color="warn" [matMenuTriggerFor]="menu">
         <img src="{{this.userService.user.image}}" alt="avatar" width="60" height="60" class="avatar">
       </button>
-      <mat-menu #menu="matMenu" >
+      <mat-menu #menu="matMenu">
         <p>{{this.userService.user!.name || ''}}</p>
         <p>@{{this.userService.user!.username || ''}}</p>
         <button mat-menu-item routerLink="/profile/{{this.userService.user._id}}" routerLinkActive="active">
@@ -26,7 +34,7 @@
         </button>
       </mat-menu>
     </div>
-    
+
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>
