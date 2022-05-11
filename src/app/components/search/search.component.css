@@ -1,10 +1,14 @@
 .box {
   margin: 3px auto;
-  margin-bottom: 50px;
   margin-top: 50px;
   width: 500px;
   height: 20px;
   padding-right: 10px;
+}
+
+.example-card {
+  max-width: 400px;
+  margin-bottom: 8px;
 }
 
 a {
@@ -19,9 +23,11 @@ a {
   height: 20px;
   padding-right: 10px;
 }
-.post-card{
+.post-card {
   max-width: 500px;
   border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .container-1 {
