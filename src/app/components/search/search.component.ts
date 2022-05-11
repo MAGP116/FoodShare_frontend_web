@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  debounceTime,
-  filter,
-  Subject,
-  switchMap,
-} from 'rxjs';
+import { debounceTime, filter, startWith, Subject, switchMap } from 'rxjs';
 import {
   SearchUserService,
   UserSearch,
@@ -18,19 +13,15 @@ import {
 export class SearchComponent implements OnInit {
   data: UserSearch[] = [];
   searchUser$ = new Subject();
+  key: string = '';
   constructor(private readonly SearchUserService: SearchUserService) {}
 
-  ngOnInit(): void {}
-
-  getUsersSearch(name: any) {
-    const keywork = name.target.value;
-
+  ngOnInit(): void {
     this.searchUser$
       .pipe(
-        filter((k) => k != ''),
-        debounceTime(2000),
-        switchMap(() => {
-          return this.SearchUserService.getUser(keywork);
+        debounceTime(450),
+        switchMap((key: any) => {
+          return this.SearchUserService.getUser(key);
         })
       )
       .subscribe({
@@ -39,5 +30,10 @@ export class SearchComponent implements OnInit {
           console.log('Cambios: ', this.data);
         },
       });
+  }
+
+  getUsersSearch(name: any) {
+    this.key = name.target.value;
+    this.searchUser$.next(this.key);
   }
 }
