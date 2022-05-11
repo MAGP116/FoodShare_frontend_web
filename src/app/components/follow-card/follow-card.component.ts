@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap } from 'rxjs';
 import { followInterface, FollowService } from 'src/app/services/follow/follow.service';
+import { ProfileService } from 'src/app/services/profile/profile.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class FollowCardComponent implements OnInit {
   constructor(
     private readonly followService: FollowService,
     public readonly userService: UserService,
+    private readonly profile: ProfileService
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +25,11 @@ export class FollowCardComponent implements OnInit {
 
   onUnfollow(){
     this.show = false;
-    this.followService.unfollow(this.follow!._id).subscribe();
+    this.followService.unfollow(this.follow!._id).subscribe(
+      {complete:()=>{
+        this.profile.loadCountFollowing()
+      }}
+    );
   }
 
 }
