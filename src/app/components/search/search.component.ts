@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { debounceTime, forkJoin, map, of, startWith, Subject, switchMap } from 'rxjs';
-import { SearchUserService, UserSearch,} from '../../services/search-user/search-user.service';
-
+import {
+  debounceTime,
+  filter,
+  Subject,
+  switchMap,
+} from 'rxjs';
+import {
+  SearchUserService,
+  UserSearch,
+} from '../../services/search-user/search-user.service';
 
 @Component({
   selector: 'app-search',
@@ -13,25 +20,24 @@ export class SearchComponent implements OnInit {
   searchUser$ = new Subject();
   constructor(private readonly SearchUserService: SearchUserService) {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
+
   getUsersSearch(name: any) {
     const keywork = name.target.value;
 
-    // const debounceExample = keywork.pipe(debounceTime(3000));
-    // console.log(debounceExample);
-    
     this.searchUser$
       .pipe(
+        filter((k) => k != ''),
         debounceTime(2000),
         switchMap(() => {
-          return forkJoin([this.SearchUserService.getUser(keywork)]);
+          return this.SearchUserService.getUser(keywork);
         })
       )
-      .subscribe((response:any)=>{
-        console.log(response)
-        this.data = response
+      .subscribe({
+        next: (usersearch: any) => {
+          this.data = usersearch;
+          console.log('Cambios: ', this.data);
+        },
       });
   }
 }

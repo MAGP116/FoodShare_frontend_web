@@ -10,11 +10,10 @@
       <mat-icon>add</mat-icon>
     </button>
 
-    <a href="/search">
-      <button mat-fab color="warn">
-        <mat-icon>search</mat-icon>
-      </button>
-    </a>
+    <button mat-flat-button routerLink="/search" routerLinkActive="active" color="warn"
+      *ngIf="this.userService.user !== null">
+      <mat-icon>search</mat-icon>
+    </button>
 
     <span class="spacer"></span>
     <div *ngIf="this.userService.user !== null">
