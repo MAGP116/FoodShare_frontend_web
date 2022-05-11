@@ -23,7 +23,7 @@ export class MiniPostDialogComponent implements OnInit {
 
   onDelete(){
     this.postService.delete(this.post!._id).subscribe();
-    this.profile.reload();
+    this.profile.loadPosts();
   }
 
   onComment(){

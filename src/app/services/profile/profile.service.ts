@@ -51,21 +51,34 @@ export class ProfileService {
     ).subscribe({next:(val)=>{
       this.followed = val;
     }})
-    this.followService.getCountFollowers(this.id).subscribe({
+    this.loadCountFollowers();
+    this.loadCountFollowing();
+    this.loadPosts()
+  }
+
+  loadCountFollowers(){
+    this.followService.getCountFollowers(this.id||'').subscribe({
       next:(follows)=>{
         this.followers = follows.follows;
       }
     })
-    this.followService.getCountFollowing(this.id).subscribe({
+  }
+  loadCountFollowing(){
+    this.followService.getCountFollowing(this.id||'').subscribe({
       next:(follows)=>{
         this.following = follows.follows;
       }
     })
+  }
+
+  loadPosts(){
+    if(this.id == null){
+      return;
+    }
     this.postService.getUserPosts(this.id).subscribe({
       next:(posts)=>{
         this.posts = posts;
       }
     })
-
   }
 }
