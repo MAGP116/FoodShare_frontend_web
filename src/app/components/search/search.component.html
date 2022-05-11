@@ -5,7 +5,6 @@
 </div>
 
 <div class="box2">
-
   <!-- Implentar card de presentacion -->
   <mat-card class="post-card" *ngFor="let m of data;">
     <a href="/profile/{{m._id}}">
@@ -17,4 +16,16 @@
       </mat-card-header>
     </a>
   </mat-card>
+
+
+  <mat-card class="post-card" *ngIf="data.length == 0">
+    <mat-card-header>
+      <div mat-card-avatar
+        style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); background-size: cover;">
+      </div>
+      <mat-card-title>Shiba Inu,   Search your friends by name</mat-card-title>
+      <mat-card-subtitle>@Dog Breed,  Or by username</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
 </div>
