@@ -4,14 +4,17 @@
   </div>
 </div>
 
-<div class="box2" *ngIf="data.length >=1">
-  <mat-card class="post-card">
-    <mat-card-header>
-      <div mat-card-avatar
-        style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');; background-size: cover;">
-      </div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>@Dog Breed</mat-card-subtitle>
-    </mat-card-header>
+<div class="box2">
+
+  <!-- Implentar card de presentacion -->
+  <mat-card class="post-card" *ngFor="let m of data;">
+    <a href="/profile/{{m._id}}">
+      <mat-card-header>
+        <div mat-card-avatar style="background-image: url('{{m.image}}'); background-size: cover;">
+        </div>
+        <mat-card-title>{{m.name}}</mat-card-title>
+        <mat-card-subtitle>@{{m.username}}</mat-card-subtitle>
+      </mat-card-header>
+    </a>
   </mat-card>
 </div>
