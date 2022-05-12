@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SERVER_URL } from 'src/app/app.module';
 
 export interface UserInterface {
   _id: string;
@@ -35,7 +36,7 @@ export interface UserImageInterface {
   providedIn: 'root',
 })
 export class UserService {
-  private url = 'https://food-share-back-end.herokuapp.com'; //TODO: CHANGE TO REAL URL
+  private url = `${SERVER_URL}`;
   user: UserInterface | null = null;
 
   constructor(private readonly http: HttpClient) {}

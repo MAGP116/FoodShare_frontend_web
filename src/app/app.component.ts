@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SERVER_URL } from './app.module';
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
 
@@ -24,7 +25,7 @@ export class AppComponent {
   }
 
   logOut(){
-    window.location.href="https://food-share-back-end.herokuapp.com/auth/logout"
+    window.location.href=`${SERVER_URL}/auth/logout`
   }
 
 

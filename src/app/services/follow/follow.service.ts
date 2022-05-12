@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { SERVER_URL } from 'src/app/app.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FollowService {
-  private url = 'https://food-share-back-end.herokuapp.com/'//TODO: CHANGE TO REAL URL
+  private url = `${SERVER_URL}`;
   constructor(private readonly http: HttpClient) { }
 
   getFollowers(id:string){

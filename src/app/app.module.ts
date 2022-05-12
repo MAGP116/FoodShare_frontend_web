@@ -108,3 +108,5 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export const SERVER_URL = "https://food-share-back-end.herokuapp.com/";
