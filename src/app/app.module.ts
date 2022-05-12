@@ -44,6 +44,10 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SignUpFormComponent } from './pages/sign-up/sign-up-form/sign-up-form.component';
 import { CompleteUserComponent } from './pages/complete-user/complete-user.component';
 import { PostCommentComponent } from './components/post-comment/post-comment.component';
+import { EmitterComponent } from './components/emitter/emitter.component';
+import { ReceiverComponent } from './components/receiver/receiver.component';
+import { LiveComponent } from './pages/live/live.component';
+
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 
 @NgModule({
@@ -73,6 +77,9 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
     SignUpFormComponent,
     CompleteUserComponent,
     PostCommentComponent,
+    EmitterComponent,
+    ReceiverComponent,
+    LiveComponent,
     ConfirmDeleteComponent,
     
   ],

@@ -1,0 +1,12 @@
+video {
+  height: 600px;
+  width: 800px;
+}
+
+canvas {
+  display: none;
+}
+
+div {
+  margin: 2rem;
+}

@@ -1,0 +1,10 @@
+<div *ngIf="userService.user === null">
+  Loading ... 
+</div>
+<div *ngIf="userService.user !== null">
+  <app-receiver  *ngIf="id !== userService.user._id ;else elseBlock" [id]="userService.user._id" [room]="id"></app-receiver>
+</div>
+
+<ng-template #elseBlock>
+  <app-emitter [id]="id"></app-emitter>
+</ng-template>

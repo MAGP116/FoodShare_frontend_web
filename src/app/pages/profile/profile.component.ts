@@ -4,6 +4,7 @@ import {FollowService } from 'src/app/services/follow/follow.service';
 import {MatDialog} from '@angular/material/dialog';
 import { FollowsDialogComponent } from '../../components/follows-dialog/follows-dialog.component';
 import { ProfileService } from 'src/app/services/profile/profile.service';
+import { LivestreamService } from 'src/app/services/livestream/livestream.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,14 +12,18 @@ import { ProfileService } from 'src/app/services/profile/profile.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  public live: boolean = false;
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly followService: FollowService,
     public readonly profile:ProfileService,
-    private readonly dialog:MatDialog) {
-    this.route.params.subscribe({next:(params)=>{
+    private readonly dialog:MatDialog,
+    private readonly livestreamService:LivestreamService,
+    ) {
+    this.route.params.subscribe({
+      next:(params)=>{
         this.profile.load(params["id"])
       }})
   }
@@ -75,6 +80,13 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.livestreamService.login(this.profile.id!, this.profile.id!);
+    this.livestreamService.getStream().subscribe({
+      next: _ => this.live = true
+    });
+    this.livestreamService.streamEndEvent().subscribe({
+      next: _ => this.live = false
+    });
   }
 
 }
