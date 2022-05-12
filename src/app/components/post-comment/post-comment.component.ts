@@ -1,15 +1,23 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { iif, mergeMap, of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LikeService } from 'src/app/services/like/like.service';
-import { PostInterface } from 'src/app/services/post/post.service';
+import { PostInterface, PostService } from 'src/app/services/post/post.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+
+export interface DataPost {
+  postId: string;
+  userId:string;
+}
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css'],
+  selector: 'app-post-comment',
+  templateUrl: './post-comment.component.html',
+  styleUrls: ['./post-comment.component.css'],
 })
-export class PostComponent implements OnInit {
+export class PostCommentComponent implements OnInit {
   @Input() post: PostInterface | null = null;
   @Input() inComments: boolean = false;
   likes: number = 0;
@@ -17,7 +25,10 @@ export class PostComponent implements OnInit {
 
   constructor(
     private readonly likeService: LikeService,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    public readonly userService: UserService,
+    
+    public dialog: MatDialog
   ) {}
 
   onFav() {
@@ -39,6 +50,15 @@ export class PostComponent implements OnInit {
   }
 
   onSeeLikes() {}
+
+  onDelete() {
+    this.dialog.open(ConfirmDeleteComponent, {
+      data: {
+        postId: this.post!._id,
+        userId: this.userService.user!._id
+      },
+    });
+  }
 
   ngOnInit(): void {
     this.likeService

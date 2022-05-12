@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class MiniPostDialogComponent implements OnInit {
   post:PostInterface|null = null;
+  
   constructor(
     private readonly postService: PostService,
     private readonly route: Router,

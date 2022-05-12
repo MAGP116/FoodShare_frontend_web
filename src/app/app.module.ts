@@ -43,6 +43,8 @@ import { UserInputsComponent } from './components/user-inputs/user-inputs.compon
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SignUpFormComponent } from './pages/sign-up/sign-up-form/sign-up-form.component';
 import { CompleteUserComponent } from './pages/complete-user/complete-user.component';
+import { PostCommentComponent } from './components/post-comment/post-comment.component';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { CompleteUserComponent } from './pages/complete-user/complete-user.compo
     SignUpComponent,
     SignUpFormComponent,
     CompleteUserComponent,
+    PostCommentComponent,
+    ConfirmDeleteComponent,
     
   ],
   imports: [

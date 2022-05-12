@@ -16,7 +16,7 @@ export interface PostInterface {
 })
 export class PostService {
   private url = 'http://localhost:3000/'; //TODO: CHANGE TO REAL URL
-
+  post: PostInterface | null = null;
   constructor(private readonly http: HttpClient) {}
 
   getPosts() {

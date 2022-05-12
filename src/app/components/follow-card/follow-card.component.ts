@@ -25,10 +25,8 @@ export class FollowCardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.follow);
-    
   }
-  
-  
+
   onUnfollow() {
     this.show = false;
     this.followService.unfollow(this.follow!._id).subscribe({
