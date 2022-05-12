@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
   logOut(){
-    window.location.href="http://localhost:3000/auth/logout"
+    window.location.href="https://food-share-back-end.herokuapp.com/auth/logout"
   }
 
 

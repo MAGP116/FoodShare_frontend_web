@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class FollowService {
-  private url = 'http://localhost:3000'//TODO: CHANGE TO REAL URL
+  private url = 'https://food-share-back-end.herokuapp.com/'//TODO: CHANGE TO REAL URL
   constructor(private readonly http: HttpClient) { }
 
   getFollowers(id:string){
