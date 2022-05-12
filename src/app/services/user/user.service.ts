@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 
 export interface UserInterface {
   _id: string;
-  username: string;
-  email: string;
-  name: string;
-  description: string;
-  image: string;
+  username : string;
+  email:string;
+  name:string;
+  description:string;
+  image:string;
+  resgitrationCompleted:boolean;
 }
 
 export interface UserUpdateInterface {
@@ -55,14 +56,10 @@ export class UserService {
     });
   }
 
-  loadUser() {
-    this.http
-      .get<UserInterface | null>(`${this.url}/user`, { withCredentials: true })
-      .subscribe({
-        next: (val) => {
-          this.user = val;
-        },
-      });
+  loadUser(){
+    this.http.get<UserInterface|null>(`${this.url}/user`,{withCredentials:true}).subscribe({next:(val)=>{
+      this.user = val;
+    },error:()=>{}})
   }
 
   getUser(id: string) {

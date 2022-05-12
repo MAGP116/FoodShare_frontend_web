@@ -1,42 +1,74 @@
-<mat-card>
-    <mat-card-title>Update profile</mat-card-title>
-    <mat-card-content>
-        <mat-form-field class="example-form-field" appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput type="Email" [(ngModel)]="email" disabled>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="example-form-field" appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput type="text" [(ngModel)]="name">
-            <button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="example-form-field" appearance="fill">
-            <mat-label>Username</mat-label>
-            <input matInput type="text" [(ngModel)]="username">
-            <button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline">
-            <mat-label>Description</mat-label>
-            <textarea matInput type="text" placeholder="Description" [(ngModel)]="description"></textarea>
-            <mat-hint>Insert your description here</mat-hint>
-            <button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-        <app-file-button [fileName]="file?file.name:''" (selected)="onFileSelect($event)"></app-file-button>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button color="warn" (click)="onSubmiting()" disabled="{{(!(username && name && email && description))||submiting}}">Update</button>
-    </mat-card-actions>
-    <mat-card-footer>
-        <mat-progress-bar *ngIf="submiting" mode="indeterminate"></mat-progress-bar>
-      </mat-card-footer>
-
+<mat-card >
+  <mat-card-title>{{ this.title }}</mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="Email" [(ngModel)]="email" disabled />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="name" />
+      <button
+        *ngIf="name"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="name = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+  
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" [(ngModel)]="username" />
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Random"
+        (click)="onRandom()"
+      >
+      <mat-icon>autorenew</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        type="text"
+        placeholder="Description"
+        [(ngModel)]="description"
+      ></textarea>
+      <mat-hint>Insert your description here</mat-hint>
+      <button
+        *ngIf="description"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="description = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <app-file-button
+      [fileName]="file ? file.name : ''"
+      (selected)="onFileSelect($event)"
+    ></app-file-button>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-button
+      color="warn"
+      (click)="onSubmiting()"
+      disabled="{{ disabled() }}"
+    >
+      {{ this.submitMessage }}
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar *ngIf="sending" mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
 </mat-card>

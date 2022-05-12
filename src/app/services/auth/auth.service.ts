@@ -2,9 +2,28 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
 
+
+
+export interface signUpFormInterface{
+  username:string;
+  password:string;
+  password2:string;
+}
+
+export interface logInFormatInterface{
+  username:string;
+  password:string;
+}
+
+export interface AuthResponseInterface {
+  status: number;
+  message : string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   constructor(private readonly http: HttpClient) { }
   private url = 'http://localhost:3000'//TODO: CHANGE TO REAL URL
@@ -14,18 +33,22 @@ export class AuthService {
     return this.http.get<AuthResponseInterface>(`${this.url}/auth/verifyLogin`,{ withCredentials: true })
     .pipe(
       catchError(err=>{
-        console.log(err);
-        return of(<AuthResponseInterface>{status:err.status,response:err.error.response })
+        return of(<AuthResponseInterface>{status:err.status,message:err.error.error })
       }
       )
     );
   }
 
+  login(login:logInFormatInterface){
+    return this.http.post(`${this.url}/auth/login`,login,{ withCredentials: true });
+  }
+
   logOut(){
     return this.http.get(`${this.url}/auth/logout`,{ withCredentials: true })
   }
-}
-export interface AuthResponseInterface {
-  status: number;
-  response : string;
+
+  register(PostData:signUpFormInterface){
+    return this.http.post(`${this.url}/auth/signup`,PostData);
+
+  }
 }

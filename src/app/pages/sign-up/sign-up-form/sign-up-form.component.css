@@ -1,5 +1,5 @@
 
-.login-form{
+.sign-form{
     max-width: fit-content;
     top: 10%;
     margin: auto;
@@ -9,3 +9,4 @@
     margin-right: 5%;
     margin-left:5%;
 }
+button.link { background:none; border:none; cursor: pointer; color: #0645AD;}

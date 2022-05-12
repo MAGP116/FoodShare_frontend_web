@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule, } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatIconModule} from '@angular/material/icon'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatGridListModule} from '@angular/material/grid-list'; 
@@ -39,6 +40,9 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
 import { SearchUserComponent } from './pages/search-user/search-user.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { UserInputsComponent } from './components/user-inputs/user-inputs.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignUpFormComponent } from './pages/sign-up/sign-up-form/sign-up-form.component';
+import { CompleteUserComponent } from './pages/complete-user/complete-user.component';
 import { PostCommentComponent } from './components/post-comment/post-comment.component';
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 
@@ -65,6 +69,9 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
     SearchUserComponent,
     EditProfileComponent,
     UserInputsComponent,
+    SignUpComponent,
+    SignUpFormComponent,
+    CompleteUserComponent,
     PostCommentComponent,
     ConfirmDeleteComponent,
     
@@ -79,6 +86,7 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
     MatButtonModule,
     MatCardModule,
     MatListModule,
+    MatSnackBarModule,
     MatDialogModule,
     MatMenuModule,
     MatProgressSpinnerModule,
