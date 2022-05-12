@@ -21,24 +21,24 @@ export class PostService {
   constructor(private readonly http: HttpClient) {}
 
   getPosts() {
-    return this.http.get<PostInterface[]>(`${this.url}post`, {
+    return this.http.get<PostInterface[]>(`${this.url}/post`, {
       withCredentials: true,
     });
   }
 
   getUserPosts(id:string){
-    return this.http.get<PostInterface[]>(`${this.url}post/user/${id}`, {
+    return this.http.get<PostInterface[]>(`${this.url}/post/user/${id}`, {
       withCredentials: true,
     });
   }
   getPost(id:string){
-    return this.http.get<PostInterface>(`${this.url}post/${id}`, {
+    return this.http.get<PostInterface>(`${this.url}/post/${id}`, {
       withCredentials: true,
     });
   }
 
   delete(id:string){
-    return this.http.delete<void>(`${this.url}post/${id}`, {
+    return this.http.delete<void>(`${this.url}/post/${id}`, {
       withCredentials: true,
     });
   }

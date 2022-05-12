@@ -20,7 +20,7 @@ export class SearchUserService {
   constructor(private readonly http: HttpClient) {}
 
   getUser(name: string):Observable<UserSearch>{
-    return this.http.get<UserSearch>(`${this.url}user/search?q=${name}`, {
+    return this.http.get<UserSearch>(`${this.url}/user/search?q=${name}`, {
       withCredentials: true,
     });
   }
