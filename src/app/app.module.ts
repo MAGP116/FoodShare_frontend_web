@@ -40,6 +40,7 @@ import { SearchUserComponent } from './pages/search-user/search-user.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { UserInputsComponent } from './components/user-inputs/user-inputs.component';
 import { PostCommentComponent } from './components/post-comment/post-comment.component';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { PostCommentComponent } from './components/post-comment/post-comment.com
     EditProfileComponent,
     UserInputsComponent,
     PostCommentComponent,
+    ConfirmDeleteComponent,
     
   ],
   imports: [
