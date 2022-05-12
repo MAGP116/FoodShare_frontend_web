@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { PostInterface, PostService } from 'src/app/services/post/post.service';
 import { MiniPostDialogComponent } from '../mini-post-dialog/mini-post-dialog.component';
 
@@ -12,6 +13,7 @@ export class MiniPostImageComponent implements OnInit {
   @Input()post:PostInterface|null = null;
   constructor(
     private readonly dialog:MatDialog,
+    private readonly route: Router,
     private readonly postService: PostService,
     ) { }
 
@@ -19,9 +21,6 @@ export class MiniPostImageComponent implements OnInit {
   }
 
   onClick(id:string){
-    this.postService.getPost(id).subscribe({next:(post)=>{
-      var ref = this.dialog.open(MiniPostDialogComponent);
-      ref.componentInstance.post = post;
-    }})
+    this.route.navigate([`/post/${id}`])
   }
 }

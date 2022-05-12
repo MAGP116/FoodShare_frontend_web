@@ -39,6 +39,7 @@ import { CommentFormComponent } from './components/comment-form/comment-form.com
 import { SearchUserComponent } from './pages/search-user/search-user.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { UserInputsComponent } from './components/user-inputs/user-inputs.component';
+import { PostCommentComponent } from './components/post-comment/post-comment.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { UserInputsComponent } from './components/user-inputs/user-inputs.compon
     SearchUserComponent,
     EditProfileComponent,
     UserInputsComponent,
+    PostCommentComponent,
     
   ],
   imports: [
