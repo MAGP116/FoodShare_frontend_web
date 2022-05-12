@@ -35,7 +35,7 @@ export interface UserImageInterface {
   providedIn: 'root',
 })
 export class UserService {
-  private url = 'http://localhost:3000'; //TODO: CHANGE TO REAL URL
+  private url = 'https://food-share-back-end.herokuapp.com'; //TODO: CHANGE TO REAL URL
   user: UserInterface | null = null;
 
   constructor(private readonly http: HttpClient) {}

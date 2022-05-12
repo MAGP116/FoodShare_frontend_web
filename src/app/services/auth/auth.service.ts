@@ -26,7 +26,7 @@ export interface AuthResponseInterface {
 
 export class AuthService {
   constructor(private readonly http: HttpClient) { }
-  private url = 'http://localhost:3000'//TODO: CHANGE TO REAL URL
+  private url = 'https://food-share-back-end.herokuapp.com'//TODO: CHANGE TO REAL URL
 
   
   isAuthenticated(): Observable<AuthResponseInterface>{

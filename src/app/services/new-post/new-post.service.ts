@@ -8,7 +8,7 @@ import { catchError, Observable } from 'rxjs';
 export class NewPostService {
 
   constructor(private readonly http: HttpClient) { }
-  private url = 'http://localhost:3000';
+  private url = 'https://food-share-back-end.herokuapp.com/';
 
   createPost(formData: FormData): Observable<Object> {
     return this.http.post(`${this.url}/post`, formData, {withCredentials: true});

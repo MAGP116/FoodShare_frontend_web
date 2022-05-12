@@ -19,7 +19,7 @@ export interface countInterface {
   providedIn: 'root'
 })
 export class LikeService {
-  private url = 'http://localhost:3000/'; //TODO: CHANGE TO REAL URL
+  private url = 'https://food-share-back-end.herokuapp.com/'; //TODO: CHANGE TO REAL URL
   constructor(private readonly http: HttpClient) {}
 
   getbyPost(id:string){

@@ -56,12 +56,12 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLoginGoogle() {
-    window.location.href = 'http://localhost:3000/auth/google/login' //TODO: CHANGE TO REAL URL
+    window.location.href = 'https://food-share-back-end.herokuapp.com/auth/google/login' //TODO: CHANGE TO REAL URL
 
   }
 
   onLoginFacebook() {
-    window.location.href = 'http://localhost:3000/auth/facebook/login' //TODO: CHANGE TO REAL URL
+    window.location.href = 'https://food-share-back-end.herokuapp.com/auth/facebook/login' //TODO: CHANGE TO REAL URL
   }
 
   ngOnInit(): void {
