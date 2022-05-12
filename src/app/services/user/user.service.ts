@@ -7,7 +7,8 @@ export interface UserInterface {
   email:string;
   name:string;
   description:string;
-  image:string
+  image:string;
+  resgitrationCompleted:boolean;
 }
 
 export interface UserUpdateInterface {
@@ -51,7 +52,7 @@ export class UserService {
   loadUser(){
     this.http.get<UserInterface|null>(`${this.url}/user`,{withCredentials:true}).subscribe({next:(val)=>{
       this.user = val;
-    }})
+    },error:()=>{}})
   }
 
   getUser(id:string){

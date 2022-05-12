@@ -16,6 +16,9 @@ export class AppComponent {
       next:(res)=>{
         console.log(res);
         this.isAuthenticated = res.status === 200;
+      },error:(err)=>{
+        console.log(err);
+        
       }
     })
 

@@ -1,9 +1,12 @@
-<app-user-inputs *ngIf="this.userService != null"
+<app-user-inputs *ngIf="this.userService.user"
     [name]="this.userService.user?.name || ''"
     [email]="this.userService.user?.email ||''"
     [description]="this.userService.user?.description || ''"
     [username]="this.userService.user?.username||''"
-    [title]="'Update Profile'"
-    [submitMessage]="'update'"
+    [title]="'Complete account'"
+    [submitMessage]="'register'"
+    [fileRequired]="true"
     (submit)="onSubmit($event)"
 ></app-user-inputs>
+<mat-spinner color="warn" *ngIf="!this.userService.user"></mat-spinner>
+
