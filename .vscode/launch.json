@@ -7,7 +7,7 @@
       "type": "pwa-chrome",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "localhost:4200/"
+      "url": "https://food-share-front-end.herokuapp.com/"
     },
     {
       "name": "ng test",
