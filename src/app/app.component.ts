@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth/auth.service';
-import { UserInterface, UserService } from './services/user/user.service';
+import { UserService } from './services/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +12,11 @@ export class AppComponent {
   isAuthenticated = false;
 
   constructor(private readonly authService: AuthService, public readonly userService: UserService){
-    authService.isAuthenticated().subscribe({
+    this.authService.isAuthenticated().subscribe({
       next:(res)=>{
-        console.log(res);
+        
         this.isAuthenticated = res.status === 200;
       },error:(err)=>{
-        console.log(err);
-        
       }
     })
 

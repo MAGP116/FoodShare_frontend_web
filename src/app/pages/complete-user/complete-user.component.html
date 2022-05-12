@@ -6,6 +6,9 @@
     [title]="'Complete account'"
     [submitMessage]="'register'"
     [fileRequired]="true"
+    [showCancel]="true"
+    [cancelMessage]="'logout'"
+    (cancel)="onCancel()"
     (submit)="onSubmit($event)"
 ></app-user-inputs>
 <mat-spinner color="warn" *ngIf="!this.userService.user"></mat-spinner>

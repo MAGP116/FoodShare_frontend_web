@@ -31,6 +31,7 @@ export class AuthGuard implements CanActivate {
       //Register page
       if(state.url === '/register'){
         return  this.authService.isAuthenticated().pipe(map(response =>{
+          
           if(response.message === 'Not logged in'){
             this.router.navigate(['/']);
           }
