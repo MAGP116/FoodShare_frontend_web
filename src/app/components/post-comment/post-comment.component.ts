@@ -1,11 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { iif, mergeMap, of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LikeService } from 'src/app/services/like/like.service';
 import { PostInterface, PostService } from 'src/app/services/post/post.service';
-import { ProfileService } from 'src/app/services/profile/profile.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+
+export interface DataPost {
+  postId: string;
+  userId:string;
+}
 
 @Component({
   selector: 'app-post-comment',
@@ -22,9 +27,8 @@ export class PostCommentComponent implements OnInit {
     private readonly likeService: LikeService,
     private readonly authService: AuthService,
     public readonly userService: UserService,
-    private readonly postService: PostService,
-    private readonly profile:ProfileService,
-    private readonly route: Router,
+    
+    public dialog: MatDialog
   ) {}
 
   onFav() {
@@ -47,10 +51,13 @@ export class PostCommentComponent implements OnInit {
 
   onSeeLikes() {}
 
-  onDelete() {   
-    this.postService.delete(this.post!._id).subscribe();
-    this.route.navigate([`/profile/${this.post!.userId._id}`])
-    this.profile.loadPosts();
+  onDelete() {
+    this.dialog.open(ConfirmDeleteComponent, {
+      data: {
+        postId: this.post!._id,
+        userId: this.userService.user!._id
+      },
+    });
   }
 
   ngOnInit(): void {

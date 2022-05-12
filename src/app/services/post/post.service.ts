@@ -15,8 +15,8 @@ export interface PostInterface {
   providedIn: 'root',
 })
 export class PostService {
-  private url = 'http://localhost:3000/'; //TODO: CHANGE TO REAL URL
-
+  private url = 'https://food-share-back-end.herokuapp.com/'; //TODO: CHANGE TO REAL URL
+  post: PostInterface | null = null;
   constructor(private readonly http: HttpClient) {}
 
   getPosts() {
