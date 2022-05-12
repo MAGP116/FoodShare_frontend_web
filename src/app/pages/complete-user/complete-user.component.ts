@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { mergeMap } from 'rxjs';
+import { catchError, mergeMap, of } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import {
   UserService,
   UserUpdateInterface,
@@ -12,9 +13,19 @@ import {
   styleUrls: ['./complete-user.component.css'],
 })
 export class CompleteUserComponent implements OnInit {
-  constructor(public readonly userService: UserService,private readonly router: Router) {}
+  constructor(public readonly userService: UserService,
+    private readonly router: Router,
+    private readonly authService: AuthService) {}
 
   ngOnInit(): void {}
+
+  onCancel(){
+    this.authService.logOut().pipe(catchError((err)=>{
+     return of({})})).subscribe({complete:()=>{
+      this.router.navigate([`/`]);
+    }})
+    
+  }
 
   onSubmit(event: UserUpdateInterface) {
     this.userService.uploadProfileImage(event.file!).pipe(mergeMap(
@@ -27,7 +38,7 @@ export class CompleteUserComponent implements OnInit {
       })
     )).subscribe({complete:()=>{
       this.userService.loadUser();
-      this.router.navigate([`/home`])
+      this.router.navigate([`/home`]);
     }})
   }
 }

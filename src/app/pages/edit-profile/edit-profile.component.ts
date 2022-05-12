@@ -15,6 +15,9 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onCancel(){
+    this.router.navigate([`/profile/${this.userService.user?._id}`]);
+  }
 
   onSubmit(event:UserUpdateInterface){
     if(event.file){

@@ -59,6 +59,12 @@
     ></app-file-button>
   </mat-card-content>
   <mat-card-actions>
+    <button *ngIf="showCancel"
+      mat-button
+      (click)="onCancel()"
+    >
+      {{this.cancelMessage}}
+    </button>
     <button
       mat-button
       color="warn"

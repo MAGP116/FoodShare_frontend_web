@@ -22,7 +22,7 @@ const routes: Routes = [
     {path: "post/:id",component:CommentComponent,canActivate:[AuthGuard],},
     {path: "edit/profile",component:EditProfileComponent,canActivate:[AuthGuard]},
     {path: "signup",component:SignUpComponent},
-    {path: "register",component: CompleteUserComponent},
+    {path: "register",component: CompleteUserComponent,canActivate:[AuthGuard]},
     {path: '**', component:NotFoundComponent}
 ];
 

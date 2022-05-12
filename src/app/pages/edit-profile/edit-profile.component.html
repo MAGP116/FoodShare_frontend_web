@@ -5,5 +5,8 @@
     [username]="this.userService.user?.username||''"
     [title]="'Update Profile'"
     [submitMessage]="'update'"
+    [showCancel]="true"
+    [cancelMessage]="'cancel'"
+    (cancel)="onCancel()"
     (submit)="onSubmit($event)"
 ></app-user-inputs>

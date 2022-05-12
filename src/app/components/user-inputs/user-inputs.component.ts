@@ -15,6 +15,9 @@ export class UserInputsComponent implements OnInit {
   @Input() email: string = '';
   @Input() description: string = '';
   @Input() fileRequired: boolean = false;
+  @Input() showCancel: boolean = false;
+  @Input() cancelMessage: string = '';
+  @Output() cancel = new EventEmitter();
   @Output() submit = new EventEmitter<UserUpdateInterface>();
   file: File | null = null;
   sending: boolean = false;
@@ -40,6 +43,10 @@ export class UserInputsComponent implements OnInit {
     this.random.randomUsername().subscribe({next:(val)=>{
       this.username = <string>val;
     }})
+  }
+
+  onCancel(){
+    this.cancel.emit();
   }
 
   onSubmiting() {
