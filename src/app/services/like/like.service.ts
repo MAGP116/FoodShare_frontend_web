@@ -24,31 +24,31 @@ export class LikeService {
   constructor(private readonly http: HttpClient) {}
 
   getbyPost(id:string){
-    return this.http.get<LikeInterface[]>(`${this.url}like/post/${id}`, {
+    return this.http.get<LikeInterface[]>(`${this.url}/like/post/${id}`, {
       withCredentials: true,
     });
   }
 
   getCountByPost(id:string){
-    return this.http.get<countInterface>(`${this.url}like/post/${id}/count`, {
+    return this.http.get<countInterface>(`${this.url}/like/post/${id}/count`, {
       withCredentials: true,
     });
   }
 
   likedByUser(id:string){
-    return this.http.get<boolean>(`${this.url}like/${id}`, {
+    return this.http.get<boolean>(`${this.url}/like/${id}`, {
       withCredentials: true,
     });
   }
 
   create(postId:string){
-    return this.http.post<LikeInterface>(`${this.url}like/${postId}`,{}, {
+    return this.http.post<LikeInterface>(`${this.url}/like/${postId}`,{}, {
       withCredentials: true,
     });
   }
 
   delete(postId:string){
-    return this.http.delete<void>(`${this.url}like/${postId}`, {
+    return this.http.delete<void>(`${this.url}/like/${postId}`, {
       withCredentials: true,
     });
   }
