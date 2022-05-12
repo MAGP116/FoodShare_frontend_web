@@ -1,0 +1,9 @@
+<div>
+  <h1>{{ !recording ? "Go live" : "Live"}}</h1>
+  <button mat-raised-button *ngIf="!recording" color="warn" autoplay="true" (click)="start()">Go live</button>
+  <button mat-raised-button *ngIf="recording" color="warn" autoplay="true" (click)="stop()">Stop</button>
+</div>
+<div>
+  <video #myVideo src=""></video>
+</div>
+<canvas #myCanvas></canvas>

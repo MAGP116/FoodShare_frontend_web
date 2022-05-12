@@ -10,6 +10,8 @@ import { NewPostComponent } from '../pages/new-post/new-post.component';
 import { CommentComponent } from '../pages/comment/comment.component';
 import {SearchUserComponent} from '../pages/search-user/search-user.component'
 import { EditProfileComponent } from '../pages/edit-profile/edit-profile.component';
+import { LiveComponent } from '../pages/live/live.component';
+
 const routes: Routes = [
     {path: "", component:LoginComponent, canActivate:[AuthGuard],},
     {path: "home", component:HomeComponent, canActivate:[AuthGuard],},
@@ -19,6 +21,7 @@ const routes: Routes = [
     {path: "search",component:SearchUserComponent},
     {path: "post/:id",component:CommentComponent,canActivate:[AuthGuard],},
     {path: "edit/profile",component:EditProfileComponent,canActivate:[AuthGuard]},
+    {path: "live/:id",component:LiveComponent,canActivate:[AuthGuard]},
     {path: '**', component:NotFoundComponent}
 ];
 

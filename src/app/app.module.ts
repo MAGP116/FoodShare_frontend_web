@@ -40,6 +40,10 @@ import { SearchUserComponent } from './pages/search-user/search-user.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { UserInputsComponent } from './components/user-inputs/user-inputs.component';
 import { PostCommentComponent } from './components/post-comment/post-comment.component';
+import { EmitterComponent } from './components/emitter/emitter.component';
+import { ReceiverComponent } from './components/receiver/receiver.component';
+import { LiveComponent } from './pages/live/live.component';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +69,9 @@ import { PostCommentComponent } from './components/post-comment/post-comment.com
     EditProfileComponent,
     UserInputsComponent,
     PostCommentComponent,
+    EmitterComponent,
+    ReceiverComponent,
+    LiveComponent,
     
   ],
   imports: [
