@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SERVER_URL } from 'src/app/app.module';
 import { UserPreviewInterface } from '../user/user.service';
 
 
@@ -14,7 +15,7 @@ export interface CommentInterface {
   providedIn: 'root'
 })
 export class CommentService {
-  private url = 'https://food-share-back-end.herokuapp.com/'//TODO: CHANGE TO REAL URL
+  private url = `${SERVER_URL}`;
 
   constructor(private readonly http: HttpClient) { }
 

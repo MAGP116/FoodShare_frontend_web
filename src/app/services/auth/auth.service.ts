@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
+import { SERVER_URL } from 'src/app/app.module';
 
 
 
@@ -26,7 +27,7 @@ export interface AuthResponseInterface {
 
 export class AuthService {
   constructor(private readonly http: HttpClient) { }
-  private url = 'https://food-share-back-end.herokuapp.com'//TODO: CHANGE TO REAL URL
+  private url = `${SERVER_URL}`;
 
   
   isAuthenticated(): Observable<AuthResponseInterface>{

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {UserPreviewInterface} from '../user/user.service'
+import { SERVER_URL } from 'src/app/app.module';
 
 
 export interface PostInterface {
@@ -15,7 +16,7 @@ export interface PostInterface {
   providedIn: 'root',
 })
 export class PostService {
-  private url = 'https://food-share-back-end.herokuapp.com/'; //TODO: CHANGE TO REAL URL
+  private url = `${SERVER_URL}`; 
   post: PostInterface | null = null;
   constructor(private readonly http: HttpClient) {}
 

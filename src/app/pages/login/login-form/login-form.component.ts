@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SERVER_URL } from 'src/app/app.module';
 import { UserService } from 'src/app/services/user/user.service';
 import { AuthService, logInFormatInterface } from '../../../services/auth/auth.service';
 
@@ -56,12 +57,11 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLoginGoogle() {
-    window.location.href = 'https://food-share-back-end.herokuapp.com/auth/google/login' //TODO: CHANGE TO REAL URL
-
+    window.location.href = `${SERVER_URL}/auth/google/login`;
   }
 
   onLoginFacebook() {
-    window.location.href = 'https://food-share-back-end.herokuapp.com/auth/facebook/login' //TODO: CHANGE TO REAL URL
+    window.location.href = `${SERVER_URL}/auth/facebook/login`;
   }
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
+import { SERVER_URL } from 'src/app/app.module';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { catchError, Observable } from 'rxjs';
 export class NewPostService {
 
   constructor(private readonly http: HttpClient) { }
-  private url = 'https://food-share-back-end.herokuapp.com/';
+  private url = `${SERVER_URL}`;
 
   createPost(formData: FormData): Observable<Object> {
     return this.http.post(`${this.url}/post`, formData, {withCredentials: true});

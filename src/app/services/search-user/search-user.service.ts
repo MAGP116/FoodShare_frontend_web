@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
+import { SERVER_URL } from 'src/app/app.module';
 
 export interface UserSearch {
   _id: string;
@@ -13,7 +14,7 @@ export interface UserSearch {
   providedIn: 'root',
 })
 export class SearchUserService {
-  private url = 'https://food-share-back-end.herokuapp.com/'; //TODO: CHANGE TO REAL URL
+  private url = `${SERVER_URL}`;
   user: UserSearch | null = null;
 
   constructor(private readonly http: HttpClient) {}
