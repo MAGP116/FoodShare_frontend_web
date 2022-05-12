@@ -50,10 +50,6 @@ export class ProfileComponent implements OnInit {
     if(this.profile.id == null){
       return
     }
-    // this.followService.follow(this.profile.id).subscribe({complete:()=>{
-    //   this.profile.followed = true;
-    //   this.profile.followers += 1;
-    // }})
     this.followService.follow(this.profile.id).subscribe({
       complete:()=>{
         this.profile.loadCountFollowers()
