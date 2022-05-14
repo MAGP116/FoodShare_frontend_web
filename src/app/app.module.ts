@@ -49,6 +49,7 @@ import { ReceiverComponent } from './components/receiver/receiver.component';
 import { LiveComponent } from './pages/live/live.component';
 
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import { LoggedComponent } from './pages/logged/logged.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
     ReceiverComponent,
     LiveComponent,
     ConfirmDeleteComponent,
+    LoggedComponent,
     
   ],
   imports: [

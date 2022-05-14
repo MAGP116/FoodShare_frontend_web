@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
 import { SERVER_URL } from 'src/app/app.module';
 
@@ -31,7 +31,7 @@ export class AuthService {
 
   
   isAuthenticated(): Observable<AuthResponseInterface>{
-    return this.http.get<AuthResponseInterface>(`${this.url}/auth/verifyLogin`,{ withCredentials: true })
+    return this.http.get<AuthResponseInterface>(`${this.url}/auth/verifyLogin`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) })
     .pipe(
       catchError(err=>{
         return of(<AuthResponseInterface>{status:err.status,message:err.error.error })
@@ -41,15 +41,20 @@ export class AuthService {
   }
 
   login(login:logInFormatInterface){
-    return this.http.post(`${this.url}/auth/login`,login,{ withCredentials: true });
+    return this.http.post(`${this.url}/auth/login`,login,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 
   logOut(){
-    return this.http.get(`${this.url}/auth/logout`,{ withCredentials: true })
+    console.log("a");
+    window.localStorage.removeItem('auth');
+    return this.http.get(`${this.url}/auth/logout`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) })
   }
 
   register(PostData:signUpFormInterface){
     return this.http.post(`${this.url}/auth/signup`,PostData);
 
+  }
+  loginGoogle(){
+    return this.http.get(`${this.url}/auth/google/login`,{ headers: new HttpHeaders({'Access-Control-Allow-Origin':'*'}) });
   }
 }

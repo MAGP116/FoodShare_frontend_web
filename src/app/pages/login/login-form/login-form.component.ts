@@ -35,7 +35,8 @@ export class LoginFormComponent implements OnInit {
     this.sending = true;
     this.authService.login(formValue).subscribe({
       next: (val:any) => {
-        console.log('aq',val)
+        console.log('OnloggedPassword',val);
+        window.localStorage.setItem('auth',val.token);
         this.userService.loadUser();
         this.route.navigate(['/home']);
 
@@ -57,6 +58,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLoginGoogle() {
+    
     window.location.href = `${SERVER_URL}/auth/google/login`;
   }
 
