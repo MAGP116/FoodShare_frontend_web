@@ -46,14 +46,13 @@ export class UserService {
     return this.http.post<UserImageInterface>(
       `${this.url}/user/profilePicture`,
       formData,
-      { withCredentials: true, headers: { Accept: 'application/json' } }
+      {headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||'', Accept: 'application/json' }),}
     );
   }
 
   update(params: Object) {
     return this.http.put(`${this.url}/user`, params, {
-      withCredentials: true,
-      headers: { Accept: 'application/json' },
+      headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||'', Accept: 'application/json' }),
     });
   }
 
