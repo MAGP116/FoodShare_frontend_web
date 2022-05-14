@@ -52,7 +52,6 @@ export class UserService {
 
   update(params: Object) {
     return this.http.put(`${this.url}/user`, params, {
-      withCredentials: true,
       headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||'', Accept: 'application/json' }),
     });
   }
