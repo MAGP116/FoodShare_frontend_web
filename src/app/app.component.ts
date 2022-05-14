@@ -25,6 +25,7 @@ export class AppComponent {
   }
 
   logOut(){
+    window.localStorage.removeItem('auth');
     window.location.href=`${SERVER_URL}/auth/logout`
   }
 

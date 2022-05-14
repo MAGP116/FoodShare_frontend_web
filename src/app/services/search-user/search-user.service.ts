@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
 import { SERVER_URL } from 'src/app/app.module';
 
@@ -20,9 +20,7 @@ export class SearchUserService {
   constructor(private readonly http: HttpClient) {}
 
   getUser(name: string):Observable<UserSearch>{
-    return this.http.get<UserSearch>(`${this.url}/user/search?q=${name}`, {
-      withCredentials: true,
-    });
+    return this.http.get<UserSearch>(`${this.url}/user/search?q=${name}`, { headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 
   search(terms: Observable<UserSearch>){

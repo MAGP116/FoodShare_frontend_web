@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SERVER_URL } from 'src/app/app.module';
 
 export interface UserInterface {
@@ -58,14 +58,12 @@ export class UserService {
   }
 
   loadUser(){
-    this.http.get<UserInterface|null>(`${this.url}/user`,{withCredentials:true}).subscribe({next:(val)=>{
+    this.http.get<UserInterface|null>(`${this.url}/user`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) }).subscribe({next:(val)=>{
       this.user = val;
     },error:()=>{}})
   }
 
   getUser(id: string) {
-    return this.http.get<UserInterface | null>(`${this.url}/user/${id}`, {
-      withCredentials: true,
-    });
+    return this.http.get<UserInterface | null>(`${this.url}/user/${id}`, { headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 }

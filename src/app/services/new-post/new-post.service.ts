@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { SERVER_URL } from 'src/app/app.module';
@@ -12,6 +12,6 @@ export class NewPostService {
   private url = `${SERVER_URL}`;
 
   createPost(formData: FormData): Observable<Object> {
-    return this.http.post(`${this.url}/post`, formData, {withCredentials: true});
+    return this.http.post(`${this.url}/post`, formData, { headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 }

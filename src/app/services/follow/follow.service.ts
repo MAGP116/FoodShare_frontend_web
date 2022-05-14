@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { SERVER_URL } from 'src/app/app.module';
 
 @Injectable({
@@ -10,30 +10,30 @@ export class FollowService {
   constructor(private readonly http: HttpClient) { }
 
   getFollowers(id:string){
-    return this.http.get<Array<followInterface>>(`${this.url}/follows/${id}/followers`,{withCredentials:true});
+    return this.http.get<Array<followInterface>>(`${this.url}/follows/${id}/followers`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
   
   getFollowing(id:string){
-    return this.http.get<Array<followInterface>>(`${this.url}/follows/${id}/following`,{withCredentials:true});
+    return this.http.get<Array<followInterface>>(`${this.url}/follows/${id}/following`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 
   getCountFollowers(id:string){
-    return this.http.get<followCountInterface>(`${this.url}/follows/${id}/count/followers`,{withCredentials:true});
+    return this.http.get<followCountInterface>(`${this.url}/follows/${id}/count/followers`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 
   getCountFollowing(id:string){
-    return this.http.get<followCountInterface>(`${this.url}/follows/${id}/count/following`,{withCredentials:true});
+    return this.http.get<followCountInterface>(`${this.url}/follows/${id}/count/following`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 
   follow(id:string){
-    return this.http.post<Array<followInterface>>(`${this.url}/follows/${id}`,{},{withCredentials:true});
+    return this.http.post<Array<followInterface>>(`${this.url}/follows/${id}`,{},{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
   unfollow(id:string){
-    return this.http.delete<void>(`${this.url}/follows/${id}`,{withCredentials:true,});
+    return this.http.delete<void>(`${this.url}/follows/${id}`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 
   isFollowed(id:string){
-    return this.http.get<boolean>(`${this.url}/follows/${id}/find`,{withCredentials:true});
+    return this.http.get<boolean>(`${this.url}/follows/${id}/find`,{ headers: new HttpHeaders({'auth':window.localStorage.getItem('auth')||''}) });
   }
 }
 

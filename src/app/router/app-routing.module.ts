@@ -14,6 +14,7 @@ import { LiveComponent } from '../pages/live/live.component';
 
 import { SignUpComponent } from '../pages/sign-up/sign-up.component';
 import { CompleteUserComponent } from '../pages/complete-user/complete-user.component';
+import { LoggedComponent } from '../pages/logged/logged.component';
 const routes: Routes = [
     {path: "", component:LoginComponent, canActivate:[AuthGuard],},
     {path: "home", component:HomeComponent, canActivate:[AuthGuard],},
@@ -26,6 +27,7 @@ const routes: Routes = [
     {path: "live/:id",component:LiveComponent,canActivate:[AuthGuard]},
     {path: "signup",component:SignUpComponent},
     {path: "register",component: CompleteUserComponent,canActivate:[AuthGuard]},
+    {path: "logged/:token", component: LoggedComponent},
     {path: '**', component:NotFoundComponent}
 ];
 
