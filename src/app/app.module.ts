@@ -111,4 +111,4 @@ import { LoggedComponent } from './pages/logged/logged.component';
 })
 export class AppModule { }
 
-export const SERVER_URL = "http://localhost:3000"//"https://food-share-back.herokuapp.com";
+export const SERVER_URL = "https://food-share-back.herokuapp.com";
